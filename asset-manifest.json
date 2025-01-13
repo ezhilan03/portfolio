@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.aa421065.css",
+    "main.js": "/portfolio/static/js/main.0cdd4528.js",
+    "static/js/415.4d6acbeb.chunk.js": "/portfolio/static/js/415.4d6acbeb.chunk.js",
+    "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
+    "static/media/dimensionality.webp": "/portfolio/static/media/dimensionality.a60eb9f61dcb96104523.webp",
+    "static/media/credit.webp": "/portfolio/static/media/credit.9e14ae9102215d4981c3.webp",
+    "static/media/startup.webp": "/portfolio/static/media/startup.b485d6f3925a139133b8.webp",
+    "static/media/Wallmart.webp": "/portfolio/static/media/Wallmart.8c1c64d9b5f160482d8a.webp",
+    "static/media/e-commerce.webp": "/portfolio/static/media/e-commerce.32b337ca5ca9a5465658.webp",
+    "static/media/stroke.webp": "/portfolio/static/media/stroke.4bd2e5a997bc4ede73e2.webp",
+    "static/media/home-main.svg": "/portfolio/static/media/home-main.359935c39288e92d4dba5c9f2445b91d.svg",
+    "static/media/about.png": "/portfolio/static/media/about.aee0f771fbfc1e7b8fa8.png",
+    "static/media/EZHILAN-CHINNASAMY-Resume.pdf": "/portfolio/static/media/EZHILAN-CHINNASAMY-Resume.83fe57af0717e1dfcb2e.pdf",
+    "static/media/home-bg.jpg": "/portfolio/static/media/home-bg.dc52d5d40a40b13154b0.jpg",
+    "static/media/avatar.svg": "/portfolio/static/media/avatar.7f806e40d46fc76fbc3c4a3d71349951.svg",
+    "static/media/pre.svg": "/portfolio/static/media/pre.4410c5baaa673cc131da.svg",
+    "index.html": "/portfolio/index.html",
+    "main.aa421065.css.map": "/portfolio/static/css/main.aa421065.css.map",
+    "main.0cdd4528.js.map": "/portfolio/static/js/main.0cdd4528.js.map",
+    "415.4d6acbeb.chunk.js.map": "/portfolio/static/js/415.4d6acbeb.chunk.js.map",
+    "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aa421065.css",
+    "static/js/main.0cdd4528.js"
+  ]
+}
