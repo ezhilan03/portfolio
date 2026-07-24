@@ -8,6 +8,7 @@ import dimensionality from "../../Assets/Projects/dimensionality.webp";
 import walmart from "../../Assets/Projects/Wallmart.webp";
 import credit from "../../Assets/Projects/credit.webp";
 import ecommerce from "../../Assets/Projects/e-commerce.webp";
+import fintechRag from "../../Assets/Projects/fintech-rag.png";
 
 function Projects() {
   return (
@@ -21,6 +22,17 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={fintechRag}
+              isBlog={false}
+              title="Fintech Hybrid RAG Engine"
+              description="Production-grade Retrieval-Augmented Generation system for ACH payment compliance. Combines BM25 keyword search with pgvector semantic search using Reciprocal Rank Fusion. Evaluated with RAGAS — clause chunking improved context recall by 47% over recursive splitting for structured regulatory documents."
+              ghLink="https://github.com/ezhilan03/fintech-rag"
+            />
+          </Col>
+
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={walmart}
@@ -68,7 +80,6 @@ function Projects() {
               title="Credit Card Fraud Detection on Imbalanced Dataset"
               description="Designed to detect fraudulent credit card transactions by addressing the challenges of imbalanced datasets. Applied techniques like SMOTE and advanced classifiers to improve detection rates while minimizing false positives."
               ghLink="https://github.com/ezhilan03/Credit-Card-Fraud-Detection-on-Imbalanced-dataset"
-              // demoLink="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" <--------Please include a demo link here
             />
           </Col>
 
@@ -79,7 +90,6 @@ function Projects() {
               title="Performance Prediction of Start-ups USA"
               description="A predictive model to determine the success or failure probability of startups in the USA. By analyzing critical business factors and historical data, this project provides insights into startup performance, assisting investors and entrepreneurs in making informed decisions."
               ghLink="https://github.com/ezhilan03/Performace_Prediction_of_Start-ups_USA"
-              // demoLink="https://blogs.soumya-jit.tech/"      <--------Please include a demo link here 
             />
           </Col>
         </Row>
