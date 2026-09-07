@@ -285,12 +285,12 @@ button:focus {
 }
 
 .Typewriter__wrapper {
-  font-size: 2.2em !important;
+  font-size: 1.6em !important;
   color: #be6adf !important;
   font-weight: 600 !important;
 }
 .Typewriter__cursor {
-  font-size: 2.4em !important;
+  font-size: 1.8em !important;
   color: #b562d6 !important;
 }
 
@@ -740,4 +740,124 @@ button:focus {
 }
 .fork-btn-inner::after {
   display: none !important;
+}
+
+/* --------- */
+/* Hero role line */
+/* --------- */
+
+.heading-role {
+  font-size: 2.3em !important;
+  font-weight: 700 !important;
+  color: white !important;
+  letter-spacing: 1px !important;
+  padding-left: 45px !important;
+  padding-top: 8px !important;
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 767px) {
+  .heading-role {
+    font-size: 1.6em !important;
+    padding-left: 0 !important;
+    text-align: center !important;
+  }
+}
+
+/* --------- */
+/* Skills groups */
+/* --------- */
+
+.skill-group {
+  padding-bottom: 24px !important;
+  text-align: center !important;
+}
+
+.skill-group-title {
+  color: var(--imp-text-color) !important;
+  font-size: 1.25em !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.6px !important;
+  margin-bottom: 14px !important;
+}
+
+.skill-tag-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 10px !important;
+}
+
+.skill-tag {
+  display: inline-block !important;
+  color: white !important;
+  font-size: 0.95em !important;
+  padding: 7px 14px !important;
+  opacity: 0.93 !important;
+  border: 1.7px solid rgba(200, 137, 230, 0.637) !important;
+  border-radius: 5px !important;
+  box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
+  transition: all 0.4s ease 0s !important;
+}
+
+.skill-tag:hover {
+  transform: scale(1.05) !important;
+  border: 2.2px solid rgba(197, 115, 230, 0.883) !important;
+}
+
+@media (max-width: 767px) {
+  .skill-tag {
+    font-size: 0.85em !important;
+    padding: 6px 10px !important;
+  }
+}
+
+/* --------- */
+/* Project card stack tags + bullets */
+/* --------- */
+
+.project-stack {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  margin-bottom: 14px !important;
+}
+
+.project-stack-tag {
+  font-size: 0.72em !important;
+  color: #e0d0f0 !important;
+  padding: 3px 9px !important;
+  border: 1px solid rgba(200, 137, 230, 0.5) !important;
+  border-radius: 12px !important;
+  background-color: rgba(119, 53, 136, 0.18) !important;
+  white-space: nowrap !important;
+}
+
+.project-bullets {
+  text-align: left !important;
+  padding-left: 18px !important;
+  margin-bottom: 16px !important;
+  font-size: 0.88em !important;
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.project-bullets li {
+  padding-bottom: 8px !important;
+  line-height: 1.45 !important;
+}
+
+/* --------- */
+/* Narrow-column readability: justified text stretches badly in narrow */
+/* columns, so fall back to left alignment below the desktop grid.     */
+/* --------- */
+
+@media (max-width: 991px) {
+  .project-card-view .card-text {
+    text-align: left !important;
+  }
+
+  .quote-card-view .blockquote p {
+    text-align: left !important;
+  }
 }

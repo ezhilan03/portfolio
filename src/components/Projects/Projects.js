@@ -9,6 +9,7 @@ import walmart from "../../Assets/Projects/Wallmart.webp";
 import credit from "../../Assets/Projects/credit.webp";
 import ecommerce from "../../Assets/Projects/e-commerce.webp";
 import fintechRag from "../../Assets/Projects/fintech-rag.png";
+import reconEngine from "../../Assets/Projects/recon-engine.png";
 
 function Projects() {
   return (
@@ -28,8 +29,43 @@ function Projects() {
               imgPath={fintechRag}
               isBlog={false}
               title="Fintech Hybrid RAG Engine"
-              description="Production-grade Retrieval-Augmented Generation system for ACH payment compliance. Combines BM25 keyword search with pgvector semantic search using Reciprocal Rank Fusion. Evaluated with RAGAS — clause chunking improved context recall by 47% over recursive splitting for structured regulatory documents."
+              description="Hybrid retrieval engine over PostgreSQL for ACH compliance Q&A, evaluated end to end with RAGAS."
+              stack={[
+                "Python",
+                "PostgreSQL",
+                "pgvector (HNSW)",
+                "BM25",
+                "RAGAS",
+                "Docker",
+                "Cloud Run",
+              ]}
+              bullets={[
+                "Hybrid retrieval pipeline over PostgreSQL — BM25 + pgvector (HNSW) with reciprocal rank fusion — for ACH compliance Q&A; clause-level chunking delivered +47% recall over recursive, tuned for compliance recall.",
+                "RAGAS evaluation harness (faithfulness 0.829) that traced retrieval failures to BM25 index pollution and resolved them through query-type-aware weighting.",
+              ]}
               ghLink="https://github.com/ezhilan03/fintech-rag"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={reconEngine}
+              isBlog={false}
+              title="Multi-Agent Financial Reconciliation Engine"
+              description="Deterministic matcher fronting a LangGraph multi-agent investigator, escalating only the exceptions that need reasoning."
+              stack={[
+                "Python",
+                "LangGraph",
+                "MCP",
+                "litellm",
+                "PostgreSQL",
+                "Docker",
+              ]}
+              bullets={[
+                "Deterministic matcher fronting a LangGraph multi-agent investigator with MCP tools and human-in-the-loop gate; 83.3% accuracy across ~80% of volume, reserving agent reasoning for exceptions.",
+                "Ground-truth evaluation harness that caught two regressions from plausible-looking fixes; measured confidence inversely correlated with correctness, dropping self-reported confidence from routing.",
+              ]}
+              ghLink="https://github.com/ezhilan03/recon-engine"
             />
           </Col>
 

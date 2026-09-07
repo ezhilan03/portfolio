@@ -12,12 +12,21 @@ function AboutCard() {
             (you can call me "EZ" – it’s as easy as I make data look!).
             I'm from <span className="">Dallas, TX</span>, and I currently
             <br />
-            work as a <span className="purple">Business Intelligence Analyst</span> at Pay with
+            work as a <span className="purple">Data Engineer</span> at Pay with
             Spire. I hold a Master's (MS)
             <br />
             in Business Analytics and Artificial
             Intelligence from{" "}
             <span className="purple">The University of Texas at Dallas</span>.
+            <br />
+            <br />
+            Day to day I live in{" "}
+            <span className="purple">
+              Python, SQL, Azure, and GCP
+            </span>
+            , building ingestion pipelines and data models — and the{" "}
+            <span className="purple">LangGraph and MCP</span> agent layers that
+            run on top of them.
             <br />
             <br />
             Other activities I enjoy:
@@ -37,9 +46,9 @@ function AboutCard() {
           </ul>
 
           <p style={{ color: "rgb(155 126 172)" }}>
-            "Data is my playground, and insights are my goalposts."
+            "Pipelines are my playground, and a passing eval is my goalpost."
           </p>
-          <footer className="blockquote-footer">GPT 4.0</footer>
+          <footer className="blockquote-footer">GPT-6 Astra</footer>
         </blockquote>
       </Card.Body>
     </Card>

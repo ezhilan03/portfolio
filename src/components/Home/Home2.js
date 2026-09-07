@@ -20,16 +20,22 @@ function Home2() {
             </h1>
             <p className="home-about-body">
             I began my Bachelor’s in Computer Science driven by my family’s economic situation. 
-            Little did I know, I’d quickly fall in love with programming and analysis. This curiosity led me 
-            to explore a variety of fields, including web development, software engineering, data analysis, 
-            automation scripting (Python), and database management.
+            Little did I know, I’d quickly fall in love with programming and the systems behind it. 
+            This curiosity led me to explore a variety of fields, including web development, software 
+            engineering, data analysis, automation scripting (Python), and database management — and 
+            eventually to building the pipelines and platforms everything else runs on.
               <br />
               <br />
-              I’m fluent in essentials like  
+              These days I build data platforms end to end with
               <i>
-                <b className="purple"> Python, SQL, and Tableau, </b>
+                <b className="purple"> Python, SQL, Azure, and GCP, </b>
               </i>
-              and I believe in the power of data and technology to make a meaningful impact.
+              along with the agent layers that sit on top of them —
+              <i>
+                <b className="purple"> LangGraph, MCP, and Vertex AI. </b>
+              </i>
+              The rule I work by: if I can’t measure whether a system works, I haven’t finished 
+              building it. I believe in the power of data and technology to make a meaningful impact.
               <br />
               <br />
               Looking back at my journey, I’m proud to say I’m on a path that’s not only enriching me but also
