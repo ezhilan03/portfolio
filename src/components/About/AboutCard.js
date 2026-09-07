@@ -12,7 +12,7 @@ function AboutCard() {
             (you can call me "EZ" – it’s as easy as I make data look!).
             I'm from <span className="">Dallas, TX</span>, and I currently
             <br />
-            work as a <span className="purple">Data Engineer</span> at Pay with
+            work as a <span className="purple">Business Intelligence Analyst</span> at Pay with
             Spire. I hold a Master's (MS)
             <br />
             in Business Analytics and Artificial

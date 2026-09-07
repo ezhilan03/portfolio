@@ -40,7 +40,7 @@ function Home2() {
               <br />
               Looking back at my journey, I’m proud to say I’m on a path that’s not only enriching me but also
               those I care about. Feel free to reach out to discuss project collaborations, networking, or 
-              just to hear me passionately explain why Real Madrid is the greatest soccer club in history. 
+              just to hear me passionately explain why Real Madrid is the greatest football club in history. 
               <i>
                 <b className="purple"> Hala Madrid! </b> ⚽👑 
               </i>
