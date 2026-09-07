@@ -1,61 +1,61 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import { CgWebsite } from "react-icons/cg";
-import { BsGithub } from "react-icons/bs";
-
-function ProjectCards(props) {
+import { FiArrowUpRight } from "react-icons/fi";
+export default function ProjectCards({
+  image,
+  title,
+  description,
+  stack,
+  bullets,
+  ghLink,
+  index = 0,
+}) {
   return (
-    <Card className="project-card-view">
-      <Card.Img variant="top" src={props.imgPath} alt="card-img" />
-      <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>
-          {props.description}
-        </Card.Text>
-
-        {/* Optional tech stack tags — legacy cards omit this prop and render unchanged */}
-        {props.stack && props.stack.length > 0 && (
+    <article className="work-card">
+      <a
+        className="project-image-link"
+        href={ghLink}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`View ${title} on GitHub`}
+      >
+        <div className="project-image">
+          <img src={image} alt={title} loading="lazy" />
+          <span className="image-arrow">
+            <FiArrowUpRight />
+          </span>
+        </div>
+      </a>
+      <div className="project-body">
+        <div className="project-topline">
+          <span className="small-mono">
+            {String(index + 1).padStart(2, "0")} /
+          </span>
+          <a href={ghLink} target="_blank" rel="noreferrer">
+            GitHub <FiArrowUpRight />
+          </a>
+        </div>
+        <h3>{title}</h3>
+        <p>{description}</p>
+        {stack && (
           <div className="project-stack">
-            {props.stack.map((tech) => (
-              <span className="project-stack-tag" key={tech}>
-                {tech}
-              </span>
+            {stack.map((tech) => (
+              <span key={tech}>{tech}</span>
             ))}
           </div>
         )}
-
-        {/* Optional detail bullets — legacy cards omit this prop and render unchanged */}
-        {props.bullets && props.bullets.length > 0 && (
-          <ul className="project-bullets">
-            {props.bullets.map((bullet, idx) => (
-              <li key={idx}>{bullet}</li>
-            ))}
-          </ul>
+        {bullets && (
+          <details className="project-details">
+            <summary>
+              Technical details <span>+</span>
+            </summary>
+            <ul>
+              {bullets.map((bullet) => (
+                <li key={bullet}>{bullet}</li>
+              ))}
+            </ul>
+          </details>
         )}
-
-        <Button variant="primary" href={props.ghLink} target="_blank">
-          <BsGithub /> &nbsp;
-          {props.isBlog ? "Blog" : "GitHub"}
-        </Button>
-        {"\n"}
-        {"\n"}
-
-        {/* If the component contains Demo link and if it's not a Blog then, it will render the below component  */}
-
-        {!props.isBlog && props.demoLink && (
-          <Button
-            variant="primary"
-            href={props.demoLink}
-            target="_blank"
-            style={{ marginLeft: "10px" }}
-          >
-            <CgWebsite /> &nbsp;
-            {"Demo"}
-          </Button>
-        )}
-      </Card.Body>
-    </Card>
+      </div>
+    </article>
   );
 }
-export default ProjectCards;

@@ -1,98 +1,85 @@
-import React, { useState } from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
-import logo from "../Assets/logo.png";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import {
-  AiOutlineHome,
-  AiOutlineFundProjectionScreen,
-  AiOutlineUser,
-} from "react-icons/ai";
+  FiArrowUpRight,
+  FiSearch,
+  FiSun,
+  FiMoon,
+  FiMenu,
+  FiX,
+} from "react-icons/fi";
 
-import { CgFileDocument } from "react-icons/cg";
-
-function NavBar() {
-  const [expand, updateExpanded] = useState(false);
-  const [navColour, updateNavbar] = useState(false);
-
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
-    }
-  }
-
-  window.addEventListener("scroll", scrollHandler);
-
+export default function Navbar({ theme, onTheme, onSearch }) {
+  const [expanded, setExpanded] = useState(false);
+  const { pathname } = useLocation();
+  useEffect(() => {
+    setExpanded(false);
+  }, [pathname]);
   return (
-    <Navbar
-      expanded={expand}
-      fixed="top"
-      expand="md"
-      className={navColour ? "sticky" : "navbar"}
-    >
-      <Container>
-        <Navbar.Brand href="/" className="d-flex">
-          <img src={logo} className="img-fluid logo" alt="brand" />
-        </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
+    <header className="site-header">
+      <div className="nav-shell">
+        <Link className="wordmark" to="/" aria-label="EZ Home">
+          ez<span>.</span>
+        </Link>
+        <nav
+          className={expanded ? "main-nav is-open" : "main-nav"}
+          id="main-navigation"
+          aria-label="Main navigation"
         >
-          <span></span>
-          <span></span>
-          <span></span>
-        </Navbar.Toggle>
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
-            <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-              >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
-              </Nav.Link>
-            </Nav.Item>
-
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          {[
+            ["/", "Home"],
+            ["/about", "About"],
+            ["/project", "Projects"],
+            ["/resume", "Resume"],
+          ].map(([path, label]) => (
+            <NavLink
+              end={path === "/"}
+              key={path}
+              to={path}
+              onClick={() => setExpanded(false)}
+            >
+              {label}
+            </NavLink>
+          ))}
+        </nav>
+        <div className="nav-actions">
+          <button
+            className="icon-button search-toggle"
+            onClick={onSearch}
+            aria-label="Search pages and projects"
+          >
+            <FiSearch />
+            <kbd>⌘ K</kbd>
+          </button>
+          <button
+            className="icon-button"
+            onClick={onTheme}
+            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+          >
+            {theme === "light" ? <FiMoon /> : <FiSun />}
+          </button>
+          <a
+            className="nav-connect"
+            href="https://www.linkedin.com/in/ezhilan-chinnasamy"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Connect <FiArrowUpRight />
+          </a>
+          <button
+            className="icon-button menu-toggle"
+            aria-label={expanded ? "Close navigation" : "Open navigation"}
+            aria-expanded={expanded}
+            aria-controls="main-navigation"
+            onClick={() => setExpanded(!expanded)}
+            onKeyDown={(event) => {
+              if (event.key === "Escape") setExpanded(false);
+            }}
+          >
+            {expanded ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
+      </div>
+    </header>
   );
 }
-
-export default NavBar;

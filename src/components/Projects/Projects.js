@@ -1,137 +1,107 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { useSearchParams } from "react-router-dom";
+import { FiSearch, FiGrid, FiList, FiX } from "react-icons/fi";
+import { projects } from "./projectData";
 import ProjectCard from "./ProjectCards";
-import Particle from "../Particle";
-import stroke from "../../Assets/Projects/stroke.webp";
-import startup from "../../Assets/Projects/startup.webp";
-import dimensionality from "../../Assets/Projects/dimensionality.webp";
-import walmart from "../../Assets/Projects/Wallmart.webp";
-import credit from "../../Assets/Projects/credit.webp";
-import ecommerce from "../../Assets/Projects/e-commerce.webp";
-import fintechRag from "../../Assets/Projects/fintech-rag.png";
-import reconEngine from "../../Assets/Projects/recon-engine.png";
-
-function Projects() {
+export default function Projects() {
+  const [params, setParams] = useSearchParams();
+  const query = params.get("q") || "";
+  const category = params.get("category") || "All projects";
+  const layout = params.get("view") === "list" ? "list" : "grid";
+  const change = (key, value) => {
+    const next = new URLSearchParams(params);
+    value ? next.set(key, value) : next.delete(key);
+    setParams(next, { replace: true });
+  };
+  const filtered = projects.filter(
+    (project) =>
+      (category === "All projects" || category === project.category) &&
+      `${project.title} ${project.description} ${(project.stack || []).join(" ")} ${(project.bullets || []).join(" ")}`
+        .toLowerCase()
+        .includes(query.toLowerCase()),
+  );
   return (
-    <Container fluid className="project-section">
-      <Particle />
-      <Container>
-        <h1 className="project-heading">
-          My Recent <strong className="purple">Works </strong>
+    <section className="page-shell projects-page">
+      <div className="page-intro">
+        <span className="eyebrow">01 / Projects</span>
+        <h1>
+          My Recent <em>Works</em>
+          <sup>08</sup>
         </h1>
-        <p style={{ color: "white" }}>
-          Here are a few projects I've worked on recently.
-        </p>
-        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={fintechRag}
-              isBlog={false}
-              title="Fintech Hybrid RAG Engine"
-              description="Hybrid retrieval engine over PostgreSQL for ACH compliance Q&A, evaluated end to end with RAGAS."
-              stack={[
-                "Python",
-                "PostgreSQL",
-                "pgvector (HNSW)",
-                "BM25",
-                "RAGAS",
-                "Docker",
-                "Cloud Run",
-              ]}
-              bullets={[
-                "Hybrid retrieval pipeline over PostgreSQL — BM25 + pgvector (HNSW) with reciprocal rank fusion — for ACH compliance Q&A; clause-level chunking delivered +47% recall over recursive, tuned for compliance recall.",
-                "RAGAS evaluation harness (faithfulness 0.829) that traced retrieval failures to BM25 index pollution and resolved them through query-type-aware weighting.",
-              ]}
-              ghLink="https://github.com/ezhilan03/fintech-rag"
+        <p>Here are a few projects I've worked on recently.</p>
+      </div>
+      <div className="project-toolbar">
+        <div className="filter-tabs" aria-label="Filter projects">
+          {["All projects", "AI & Agents", "Machine Learning"].map((label) => (
+            <button
+              key={label}
+              aria-pressed={category === label}
+              onClick={() =>
+                change("category", label === "All projects" ? "" : label)
+              }
+            >
+              {label}
+              <span>
+                {label === "All projects" ? 8 : label === "AI & Agents" ? 2 : 6}
+              </span>
+            </button>
+          ))}
+        </div>
+        <div className="project-tools">
+          <div className="search-field">
+            <FiSearch />
+            <input
+              type="search"
+              aria-label="Search projects"
+              placeholder="Search projects…"
+              value={query}
+              onChange={(event) => change("q", event.target.value)}
             />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={reconEngine}
-              isBlog={false}
-              title="Multi-Agent Financial Reconciliation Engine"
-              description="Deterministic matcher fronting a LangGraph multi-agent investigator, escalating only the exceptions that need reasoning."
-              stack={[
-                "Python",
-                "LangGraph",
-                "MCP",
-                "litellm",
-                "PostgreSQL",
-                "Docker",
-              ]}
-              bullets={[
-                "Deterministic matcher fronting a LangGraph multi-agent investigator with MCP tools and human-in-the-loop gate; 83.3% accuracy across ~80% of volume, reserving agent reasoning for exceptions.",
-                "Ground-truth evaluation harness that caught two regressions from plausible-looking fixes; measured confidence inversely correlated with correctness, dropping self-reported confidence from routing.",
-              ]}
-              ghLink="https://github.com/ezhilan03/recon-engine"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={walmart}
-              isBlog={false}
-              title="Walmart Sales Forecasting"
-              description="A comprehensive project leveraging historical sales data to predict future sales for Walmart. Using advanced regression models like Ridge Regression and Gradient Boosting, this project achieved an impressive R² score of 0.975. It helps optimize inventory and streamline supply chain management."
-              ghLink="https://github.com/ezhilan03/Walmart-Sales-Forecasting"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={ecommerce}
-              isBlog={false}
-              title="Ecommerce Recommendation System"
-              description="An innovative recommendation engine built for e-commerce platforms. This system analyzes user behavior and purchase history to suggest personalized product recommendations, enhancing user experience and boosting sales efficiency."
-              ghLink="https://github.com/ezhilan03/Ecommerce-recommendation-system"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={dimensionality}
-              isBlog={false}
-              title="Curse of Dimensionality Mercedes-Benz Greener Manufacturing"
-              description="A project tackling high-dimensional data in the automotive industry, focusing on optimizing manufacturing processes for greener outcomes. Implemented dimensionality reduction techniques to improve model performance and provide actionable insights for sustainability."
-              ghLink="https://github.com/ezhilan03/Curse-of-Dimensionality---Mercedes-Benz-Greener-Manufacturing"           
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={stroke}
-              isBlog={false}
-              title="Stroke Prediction"
-              description="A data-driven approach to predict the likelihood of strokes based on individual health metrics. This project uses machine learning algorithms to assess risk factors, aiding early diagnosis and preventive healthcare interventions."
-              ghLink="https://github.com/ezhilan03/Stroke-prediction"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={credit}
-              isBlog={false}
-              title="Credit Card Fraud Detection on Imbalanced Dataset"
-              description="Designed to detect fraudulent credit card transactions by addressing the challenges of imbalanced datasets. Applied techniques like SMOTE and advanced classifiers to improve detection rates while minimizing false positives."
-              ghLink="https://github.com/ezhilan03/Credit-Card-Fraud-Detection-on-Imbalanced-dataset"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={startup}
-              isBlog={false}
-              title="Performance Prediction of Start-ups USA"
-              description="A predictive model to determine the success or failure probability of startups in the USA. By analyzing critical business factors and historical data, this project provides insights into startup performance, assisting investors and entrepreneurs in making informed decisions."
-              ghLink="https://github.com/ezhilan03/Performace_Prediction_of_Start-ups_USA"
-            />
-          </Col>
-        </Row>
-      </Container>
-    </Container>
+            {query && (
+              <button onClick={() => change("q", "")} aria-label="Clear search">
+                <FiX />
+              </button>
+            )}
+          </div>
+          <div className="view-toggle" aria-label="Project layout">
+            <button
+              aria-label="Grid view"
+              aria-pressed={layout === "grid"}
+              onClick={() => change("view", "")}
+            >
+              <FiGrid />
+            </button>
+            <button
+              aria-label="List view"
+              aria-pressed={layout === "list"}
+              onClick={() => change("view", "list")}
+            >
+              <FiList />
+            </button>
+          </div>
+        </div>
+      </div>
+      <p className="result-count small-mono" role="status">
+        {filtered.length} of {projects.length} projects
+      </p>
+      <div className={`projects-grid ${layout === "list" ? "list-view" : ""}`}>
+        {filtered.map((project) => (
+          <ProjectCard
+            key={project.title}
+            {...project}
+            index={projects.indexOf(project)}
+          />
+        ))}
+      </div>
+      {!filtered.length && (
+        <div className="empty-state">
+          <h2>No projects found.</h2>
+          <p>Try a different keyword or reset the filters.</p>
+          <button className="button primary" onClick={() => setParams({})}>
+            Reset filters
+          </button>
+        </div>
+      )}
+    </section>
   );
 }
-
-export default Projects;

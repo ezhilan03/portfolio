@@ -1,56 +1,57 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Particle from "../Particle";
-import pdf from "../../Assets/../Assets/EZHILAN-CHINNASAMY-Resume.pdf";
-import { AiOutlineDownload } from "react-icons/ai";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-
-function ResumeNew() {
-  const [width, setWidth] = useState(1200);
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-  }, []);
-
+import React from "react";
+import { FiDownload, FiArrowUpRight } from "react-icons/fi";
+import pdf from "../../Assets/EZHILAN-CHINNASAMY-Resume.pdf";
+export default function ResumeNew() {
   return (
-    <div>
-      <Container fluid className="resume-section">
-        <Particle />
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
+    <section className="page-shell resume-page">
+      <div className="section-heading">
+        <div className="page-intro">
+          <span className="eyebrow">03 / Resume</span>
+          <h1>
+            Resume<span className="name-dot">.</span>
+          </h1>
+        </div>
+        <div className="resume-actions">
+          <a className="text-link" href={pdf} target="_blank" rel="noreferrer">
+            Open PDF <FiArrowUpRight />
+          </a>
+          <a
+            className="button primary"
             href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
+            download="EZHILAN-CHINNASAMY-Resume.pdf"
           >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
-        </Row>
-
-        <Row className="resume">
-          <Document file={pdf} className="d-flex justify-content-center">
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
-          </Document>
-        </Row>
-
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
-        </Row>
-      </Container>
-    </div>
+            Download CV <FiDownload />
+          </a>
+        </div>
+      </div>
+      <div className="resume-frame">
+        <div className="resume-caption">
+          <span>Ezhilan Chinnasamy</span>
+          <span className="small-mono">PDF / Resume</span>
+        </div>
+        <object
+          data={`${pdf}#view=FitH`}
+          type="application/pdf"
+          aria-label="Ezhilan Chinnasamy resume"
+          title="Ezhilan Chinnasamy resume"
+        >
+          <div className="empty-state">
+            <p>Your browser cannot display this PDF inline.</p>
+            <a
+              className="button primary"
+              href={pdf}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open PDF <FiArrowUpRight />
+            </a>
+          </div>
+        </object>
+      </div>
+      <p className="resume-note">
+        Use Open PDF to view the résumé in a separate tab, or Download CV to
+        save a copy.
+      </p>
+    </section>
   );
 }
-
-export default ResumeNew;

@@ -1,68 +1,36 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import {
-  AiFillGithub,
-  AiTwotoneStar,
-  AiFillInstagram,
-} from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
-
-function Footer() {
-  let date = new Date();
-  let year = date.getFullYear();
+import { Link } from "react-router-dom";
+import { FiArrowUpRight, FiArrowUp } from "react-icons/fi";
+export const socials = [
+  ["GitHub", "https://github.com/ezhilan03"],
+  ["LinkedIn", "https://www.linkedin.com/in/ezhilan-chinnasamy"],
+  ["Tableau", "https://public.tableau.com/app/profile/ezhilan2612"],
+  ["Instagram", "https://www.instagram.com/_.pinkman_/"],
+];
+export default function Footer() {
   return (
-    <Container fluid className="footer">
-      <Row>
-        <Col md="4" className="footer-copywright">
-          <h3>Copyright © {year}</h3>
-        </Col>
-        <Col md="4" className="footer-body">
-          <ul className="footer-icons">
-            <li className="social-icons">
-              <a
-                href="https://github.com/ezhilan03"
-                style={{ color: "white" }}
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <AiFillGithub />
-              </a>
-            </li>
-            <li className="social-icons">
-              <a
-                href="https://www.linkedin.com/in/ezhilan-chinnasamy"
-                style={{ color: "white" }}
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <FaLinkedinIn />
-              </a>
-            </li>
-            <li className="social-icons">
-              <a
-                href="https://public.tableau.com/app/profile/ezhilan2612"
-                style={{ color: "white" }}
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <AiTwotoneStar />
-              </a>
-            </li>
-            <li className="social-icons">
-              <a
-                href="https://www.instagram.com/_.pinkman_/"
-                style={{ color: "white" }}
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <AiFillInstagram />
-              </a>
-            </li>
-          </ul>
-        </Col>
-      </Row>
-    </Container>
+    <footer className="site-footer">
+      <div className="footer-inner">
+        <Link className="wordmark" to="/" aria-label="EZ Home">
+          ez<span>.</span>
+        </Link>
+        <p>Copyright © {new Date().getFullYear()}</p>
+        <div className="footer-socials">
+          {socials.map(([name, url]) => (
+            <a href={url} key={name} target="_blank" rel="noreferrer">
+              {name}
+              <FiArrowUpRight />
+            </a>
+          ))}
+        </div>
+        <a
+          className="icon-button"
+          href="#main-content"
+          aria-label="Back to top"
+        >
+          <FiArrowUp />
+        </a>
+      </div>
+    </footer>
   );
 }
-
-export default Footer;
