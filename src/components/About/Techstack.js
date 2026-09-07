@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 
-const skillGroups = [
+export const skillGroups = [
   {
     title: "Data Engineering",
     items: [

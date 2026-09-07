@@ -16,6 +16,7 @@ export default function CommandMenu({ open, onClose }) {
     ["About", "/about"],
     ["Projects", "/project"],
     ["Resume", "/resume"],
+    ["Game mode", "/play"],
   ].filter(([name]) => name.toLowerCase().includes(query.toLowerCase()));
   const matches = projects.filter((project) =>
     `${project.title} ${project.description} ${(project.stack || []).join(" ")}`

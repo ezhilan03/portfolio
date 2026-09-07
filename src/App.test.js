@@ -90,3 +90,11 @@ test("keyboard search navigates to a matching project and resume retains the ori
     "EZHILAN-CHINNASAMY-Resume.pdf",
   );
 });
+
+test("direct game links with trailing slashes load and exit to the portfolio", async () => {
+  window.history.replaceState({}, "", "/play/");
+  render(<App />);
+  expect(await screen.findByRole("heading", { name: /Every adventure starts with a character/ })).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("link", { name: "Exit game" }));
+  expect(screen.getByRole("heading", { name: /I'M Ezhilan Chinnasamy/ })).toBeInTheDocument();
+});
