@@ -1,0 +1,1209 @@
+.arcade-root {
+  --arc-ink: #f0e8cf;
+  --arc-muted: #a9b9b3;
+  --arc-gold: #ead098;
+  --arc-line: #395255;
+  min-height: 100dvh;
+  background: #0c1d24;
+  color: var(--arc-ink);
+  font-family: "Space Grotesk", sans-serif;
+  color-scheme: dark;
+}
+.arcade-root *,
+.arc-journal * {
+  box-sizing: border-box;
+}
+.arcade-root button,
+.arcade-root a,
+.arc-journal button,
+.arc-journal a {
+  -webkit-tap-highlight-color: transparent;
+}
+.arcade-root button {
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.arcade-root a {
+  color: inherit;
+  text-decoration: none;
+}
+.arcade-root button:focus-visible,
+.arcade-root a:focus-visible,
+.arcade-root input:focus-visible,
+.arc-journal button:focus-visible,
+.arc-journal a:focus-visible {
+  outline: 2px solid #a5e4cf;
+  outline-offset: 4px;
+}
+.arcade-header {
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 38px;
+  border-bottom: 1px solid #ffffff12;
+  gap: 20px;
+}
+.arcade-brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 34px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -3px;
+}
+.arcade-brand span {
+  font: 12px var(--mono, monospace);
+  letter-spacing: 0.14em;
+  color: var(--arc-gold);
+}
+.arcade-credit {
+  font: 9px var(--mono, monospace);
+  letter-spacing: 0.2em;
+  color: #819a9a;
+}
+.arcade-tools {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.arcade-tools button,
+.arcade-hud button {
+  min-height: 40px;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.arcade-tools svg {
+  font-size: 17px;
+}
+.arcade-tools b {
+  font: 10px var(--mono, monospace);
+  color: #9eccb6;
+}
+.arcade-exit {
+  font-size: 12px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+.arcade-main {
+  padding: 24px 34px 20px;
+  margin: auto;
+  max-width: 1440px;
+}
+.arcade-machine {
+  width: min(100%, calc((100dvh - 232px) * 16 / 9));
+  margin: auto;
+  border: 1px solid #547272;
+  box-shadow: 0 30px 90px #0005;
+  background: #12272f;
+}
+.arcade-hud {
+  height: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr 36px;
+  align-items: center;
+  gap: 22px;
+  padding: 0 24px;
+  border-bottom: 1px solid #486363;
+}
+.hud-label {
+  font: 9px var(--mono, monospace);
+  color: #aac7bb;
+  letter-spacing: 0.11em;
+}
+.hud-player {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hud-health {
+  display: flex;
+  gap: 3px;
+}
+.hud-health i {
+  display: block;
+  width: 14px;
+  height: 9px;
+  background: #31464c;
+  transform: skew(-12deg);
+}
+.hud-health .filled {
+  background: #bbd6b5;
+  box-shadow: 0 0 5px #b4dcad1a;
+}
+.hud-mission {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3px;
+}
+.hud-mission strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.hud-mission span {
+  font: 9px var(--mono, monospace);
+  color: #a8bab4;
+}
+.hud-score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.hud-score strong {
+  font:
+    19px "VT323",
+    monospace;
+  letter-spacing: 0.06em;
+  color: var(--arc-gold);
+}
+.arcade-scene {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 16/9;
+  background: #10252f;
+  overflow: hidden;
+}
+.arcade-scene canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  outline: none;
+  touch-action: none;
+}
+.arcade-title {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #0d252df0 0%,
+    #0d252da8 50%,
+    #10293218 100%
+  );
+  padding: clamp(22px, 3.7vw, 50px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: auto;
+}
+.title-copy {
+  position: relative;
+  flex: 0 1 60%;
+}
+.arcade-eyebrow {
+  display: block;
+  font: 9px var(--mono, monospace);
+  letter-spacing: 0.18em;
+  color: #bfccb8;
+}
+.title-copy h1 {
+  position: relative;
+  display: inline-block;
+  margin: 22px 0 19px;
+  font:
+    800 clamp(64px, 7.8vw, 112px)/0.83 "Space Grotesk",
+    sans-serif;
+  letter-spacing: -0.075em;
+  color: #eee9cf;
+}
+.title-copy h1 span {
+  color: #edd19d;
+}
+.title-copy h1 i {
+  font-style: normal;
+  color: #9dbbaa;
+  font-size: 0.36em;
+  vertical-align: top;
+  margin-left: 10px;
+}
+.title-copy p {
+  color: #becdc3;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+.arcade-start-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.arc-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 13px 20px;
+  min-height: 46px;
+  border: 1px solid #f3dbac;
+  background: #e8cb96;
+  color: #182f35 !important;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 3px 3px 0 #091b26;
+  text-decoration: none;
+  cursor: pointer;
+}
+.arc-primary:hover {
+  background: #f2ddb5;
+  transform: translateY(-1px);
+}
+.arc-primary:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+.arc-secondary {
+  color: #e6d1ac !important;
+  background: #12303cb0;
+  border: 1px solid #749080;
+  padding: 12px 15px;
+  font-size: 12px !important;
+}
+.assist-setting {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  margin-top: 18px;
+  color: #bccbc0;
+}
+.assist-setting input {
+  accent-color: #d4bd8f;
+  width: 13px;
+  height: 13px;
+}
+.assist-setting span {
+  color: #8ea6a1;
+  font-size: 9px;
+}
+.title-mission {
+  flex: 0 1 30%;
+  align-self: flex-end;
+  margin-bottom: 3px;
+  padding-left: 16px;
+  border-left: 2px solid #dcce9c;
+  text-shadow: 0 2px 10px #14303b;
+}
+.title-mission > span {
+  font: 9px var(--mono, monospace);
+  color: #d4e1c5;
+}
+.title-mission strong {
+  display: block;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 14px 0;
+  letter-spacing: -0.03em;
+}
+.title-mission p {
+  font: 9px/1.7 var(--mono, monospace);
+  color: #cdd9c4;
+  margin: 0;
+}
+.arcade-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(10px, 2vw, 24px);
+  min-height: 49px;
+  padding: 10px 14px;
+  font-size: 10px;
+  color: #a7bcb4;
+  border-top: 1px solid #406064;
+}
+.arcade-controls span {
+  white-space: nowrap;
+}
+.arcade-controls kbd {
+  padding: 3px 4px;
+  background: #243e46;
+  border: 1px solid #3b5b61;
+  border-radius: 2px;
+  font: 9px var(--mono, monospace);
+  color: #e2d4b0;
+  margin-right: 4px;
+}
+.arcade-controls button {
+  background: transparent;
+  border: 0;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #bbccc0;
+}
+.arcade-under {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  max-width: 1200px;
+  margin: 20px auto 0;
+  font-size: 10px;
+  color: #809c98;
+}
+.arcade-under a {
+  color: #c5c8ac;
+  margin-left: 9px;
+}
+.arcade-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 28px;
+  background: #0c242edf;
+  backdrop-filter: blur(3px);
+  overflow: auto;
+}
+.arcade-overlay h1 {
+  color: #ead6af;
+  font-size: clamp(30px, 5.4vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  margin: 12px 0;
+}
+.arcade-overlay p {
+  color: #b9ccc2;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 24px;
+}
+.arcade-overlay .arcade-eyebrow {
+  color: #a4cbbb;
+}
+.arc-overlay-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 24px;
+}
+.arc-overlay-links button,
+.arc-text-button {
+  border: 0;
+  background: none;
+  font-size: 12px !important;
+  color: #bacbbc !important;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.arc-text-button {
+  margin-top: 20px;
+}
+.arc-evolution {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 20px;
+  margin: -10px 0 22px;
+  border: 1px solid #62837e;
+  background: #244049;
+  text-align: left;
+}
+.arc-evolution > div {
+  height: 80px;
+  width: 50px;
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
+}
+.arc-evolution > span {
+  font: 8px var(--mono, monospace);
+  color: #b8d5c3;
+}
+.arc-evolution strong {
+  display: block;
+  font:
+    19px "Space Grotesk",
+    sans-serif;
+  color: #f1d9ad;
+  margin: 7px 0;
+}
+.arc-evolution small {
+  font:
+    10px "Space Grotesk",
+    sans-serif;
+  color: #adc6bc;
+}
+.arc-win-stats {
+  display: flex;
+  gap: 40px;
+  margin: -8px 0 24px;
+}
+.arc-win-stats span {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  color: #a1bfb2;
+}
+.arc-win-stats b {
+  font:
+    34px "VT323",
+    monospace;
+  color: #efdcae;
+}
+.arc-toast {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 300px;
+  max-width: 65%;
+  padding: 14px 17px;
+  background: #142d39ed;
+  border-left: 3px solid #e2c291;
+  box-shadow: 3px 4px 0 #0e222966;
+  pointer-events: none;
+}
+.arc-toast > span {
+  display: block;
+  font: 8px var(--mono, monospace);
+  letter-spacing: 0.12em;
+  color: #d9c594;
+  margin-bottom: 6px;
+}
+.arc-toast strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #e3e7d2;
+}
+.arc-toast p {
+  font-size: 10px;
+  line-height: 1.6;
+  color: #a8c4ba;
+  margin: 5px 0 0;
+}
+.arc-toast button {
+  pointer-events: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: #e0d6b1;
+  font-size: 9px;
+  margin-top: 10px;
+}
+.arc-boss-health {
+  position: absolute;
+  top: 17px;
+  left: 28%;
+  right: 28%;
+  color: #ead5b4;
+  text-align: center;
+}
+.arc-boss-health span {
+  display: block;
+  font: 11px var(--mono, monospace);
+  margin-bottom: 7px;
+  text-shadow: 0 2px 3px #000;
+}
+.arc-boss-health progress {
+  display: block;
+  width: 100%;
+  height: 7px;
+  appearance: none;
+  border: 1px solid #efbe9077;
+  background: #1c3039;
+}
+.arc-boss-health progress::-webkit-progress-bar {
+  background: #1c3039;
+}
+.arc-boss-health progress::-webkit-progress-value {
+  background: #efab7e;
+}
+.arc-boss-health progress::-moz-progress-bar {
+  background: #efab7e;
+}
+.arc-weapon {
+  position: absolute;
+  bottom: 13px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 9px var(--mono, monospace);
+  color: #c3daca;
+  background: #0c243bbd;
+  padding: 7px 10px;
+}
+.arc-weapon > span {
+  font-size: 16px;
+  color: #e5ca9a;
+}
+.arc-weapon b {
+  font-size: 8px;
+  color: #849a9b;
+  border-left: 1px solid #53666b;
+  padding-left: 9px;
+  font-weight: 400;
+}
+.arc-weapon b.ready {
+  color: #b5d9b8;
+}
+.arc-touch-controls {
+  display: none;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  background: #132a33;
+}
+.arc-touch-controls.inactive {
+  visibility: hidden;
+}
+.arc-touch {
+  width: 55px;
+  height: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border: 1px solid #4e6a6c;
+  background: #213e49;
+  box-shadow: 0 3px 0 #091d27;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  border-radius: 6px;
+}
+.arc-touch svg {
+  width: 22px;
+  height: 22px;
+}
+.arc-touch small {
+  font: 8px var(--mono, monospace);
+}
+.arc-touch:active {
+  background: #43615d;
+  box-shadow: none;
+  transform: translateY(2px);
+}
+.touch-fire {
+  background: #c7ad82;
+  color: #182e36 !important;
+  border-color: #f0d3a0;
+}
+.touch-jump {
+  border-color: #a6c7ab;
+}
+.touch-movement,
+.touch-action {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.arcade-machine:fullscreen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 0;
+}
+.arcade-machine:fullscreen .arcade-scene {
+  max-height: calc(100dvh - 120px);
+  aspect-ratio: 16/9;
+  width: auto;
+  margin: 0 auto;
+}
+.arcade-machine:fullscreen .arcade-hud {
+  flex-shrink: 0;
+}
+.arcade-machine:fullscreen .arcade-controls {
+  flex-shrink: 0;
+}
+.arc-journal {
+  --arc-ink: #f0e8cf;
+  --arc-gold: #ead098;
+  width: min(940px, calc(100vw - 40px));
+  max-height: calc(100dvh - 60px);
+  padding: 28px;
+  border: 1px solid #678781;
+  background: #142c36;
+  color: #d1ded0;
+  box-shadow: 0 30px 120px #0008;
+  font-family: "Space Grotesk", sans-serif;
+  color-scheme: dark;
+}
+.arc-journal::backdrop {
+  background: #04141cce;
+  backdrop-filter: blur(6px);
+}
+.arc-journal header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arc-journal h2 {
+  margin: 8px 0;
+  color: #ecd7b0;
+  font-size: 32px;
+  letter-spacing: -0.04em;
+}
+.arc-journal h2 small {
+  font: 12px var(--mono, monospace);
+  color: #accabb;
+  margin-left: 10px;
+}
+.arc-journal header > button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background: #23434b;
+  color: #d5e3cf;
+  border: 1px solid #527574;
+}
+.journal-intro {
+  font-size: 12px;
+  color: #a6c2b8;
+  max-width: 650px;
+  margin: 12px 0 25px;
+}
+.journal-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  border-top: 1px solid #4e6869;
+}
+.journal-layout nav {
+  padding: 20px 18px 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-right: 1px solid #4e6869;
+}
+.journal-layout nav button {
+  border: 1px solid transparent;
+  background: transparent;
+  text-align: left;
+  color: #c1d4c8;
+  font-size: 12px;
+  padding: 12px;
+  line-height: 1.5;
+}
+.journal-layout nav button[aria-pressed="true"] {
+  background: #2a4850;
+  border-color: #829787;
+  color: #f1dcb5;
+}
+.journal-layout nav small {
+  display: block;
+  color: #98baac;
+  font: 8px var(--mono, monospace);
+  margin-bottom: 5px;
+}
+.journal-layout article {
+  padding: 25px;
+}
+.journal-layout h3 {
+  color: #e7d4b2;
+  font-size: 26px;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+  margin: 12px 0;
+}
+.journal-layout p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.journal-layout .journal-subtitle {
+  color: #a9c9bd;
+  font-size: 11px;
+}
+.journal-detail {
+  white-space: pre-line;
+}
+.journal-tags {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.journal-tags span {
+  font: 10px var(--mono, monospace);
+  padding: 5px 7px;
+  background: #2b4750;
+  border: 1px solid #537073;
+}
+.arc-journal footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 22px;
+  border-top: 1px solid #4e6869;
+  align-items: center;
+}
+.arc-journal footer a,
+.arc-journal footer button {
+  color: #d5ccaa;
+  background: none;
+  border: 0;
+  font-size: 12px;
+  text-underline-offset: 4px;
+}
+.journal-empty {
+  text-align: center;
+  padding: 35px 10%;
+}
+.journal-empty > svg {
+  font-size: 40px;
+  color: #d5c594;
+  margin-bottom: 18px;
+}
+.journal-empty h3 {
+  color: #e9d6b4;
+}
+.journal-empty p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #afc8bd;
+  margin-bottom: 20px;
+}
+@media (max-width: 1050px) {
+  .arcade-credit {
+    display: none;
+  }
+  .arcade-controls {
+    gap: 10px;
+  }
+  .arcade-controls > span:nth-child(4) {
+    display: none;
+  }
+  .title-mission strong {
+    font-size: 20px;
+  }
+  .arcade-machine {
+    width: 100%;
+  }
+  .arcade-main {
+    padding: 20px;
+  }
+}
+@media (pointer: coarse), (max-width: 850px) {
+  .arc-touch-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 18px;
+    border-top: 1px solid #486364;
+  }
+  .arcade-controls {
+    display: none;
+  }
+  .arcade-under {
+    font-size: 11px;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .arcade-title {
+    padding: 26px;
+  }
+  .title-copy h1 {
+    font-size: 76px;
+  }
+  .title-copy p {
+    font-size: 12px;
+    margin-bottom: 18px;
+  }
+  .title-mission {
+    flex-basis: 32%;
+  }
+  .assist-setting span {
+    display: block;
+    width: 100%;
+    margin-left: 20px;
+  }
+  .arcade-overlay h1 {
+    font-size: 42px;
+  }
+}
+@media (max-width: 620px) {
+  .arcade-header {
+    height: 60px;
+    padding: 0 16px;
+    gap: 10px;
+  }
+  .arcade-brand {
+    font-size: 29px;
+    gap: 11px;
+  }
+  .arcade-brand span {
+    font-size: 9px;
+    letter-spacing: 0.05em;
+  }
+  .arcade-tools {
+    gap: 10px;
+  }
+  .arcade-tools button {
+    font-size: 11px;
+    padding: 4px;
+  }
+  .arcade-tools button span {
+    display: none;
+  }
+  .arcade-exit {
+    font-size: 11px;
+    gap: 4px;
+  }
+  .arcade-main {
+    padding: 14px 12px;
+  }
+  .arcade-hud {
+    padding: 0 12px;
+    grid-template-columns: 1fr 1.1fr 0.6fr 26px;
+    gap: 8px;
+    height: 57px;
+  }
+  .hud-health i {
+    width: 9px;
+    height: 8px;
+  }
+  .hud-health {
+    gap: 2px;
+  }
+  .hud-label {
+    font-size: 8px;
+  }
+  .hud-mission strong {
+    font-size: 11px;
+  }
+  .hud-mission span {
+    font-size: 8px;
+  }
+  .hud-score strong {
+    font-size: 17px;
+  }
+  .arcade-scene {
+    aspect-ratio: 640/540;
+  }
+  .arcade-title {
+    padding: 22px;
+  }
+  .title-copy {
+    flex-basis: 100%;
+  }
+  .title-copy h1 {
+    font-size: 60px;
+    margin: 14px 0;
+  }
+  .title-copy p {
+    font-size: 12px;
+    margin: 0 0 17px;
+  }
+  .title-copy .arcade-eyebrow {
+    font-size: 8px;
+  }
+  .title-mission {
+    display: none;
+  }
+  .arcade-start-actions {
+    gap: 9px;
+  }
+  .arc-primary {
+    font-size: 12px;
+    padding: 11px 15px;
+    min-height: 44px;
+    gap: 20px;
+  }
+  .arc-secondary {
+    padding: 10px;
+    font-size: 10px !important;
+  }
+  .assist-setting {
+    margin-top: 12px;
+    font-size: 10px;
+  }
+  .assist-setting span {
+    width: auto;
+    margin: 0;
+    font-size: 9px;
+  }
+  .arc-touch-controls {
+    padding: 13px 9px;
+    gap: 8px;
+  }
+  .touch-movement,
+  .touch-action {
+    gap: 6px;
+  }
+  .arc-touch {
+    width: 44px;
+    height: 52px;
+  }
+  .touch-fire {
+    width: 52px;
+  }
+  .touch-aim {
+    width: 33px;
+    height: 44px;
+  }
+  .touch-action {
+    gap: 6px;
+  }
+  .arcade-under {
+    font-size: 10px;
+    line-height: 1.7;
+    margin-top: 14px;
+  }
+  .arcade-under span:first-child {
+    color: #9cb3a9;
+  }
+  .arcade-under a {
+    margin-left: 0;
+    display: inline-block;
+  }
+  .arc-toast {
+    top: 12px;
+    right: 12px;
+    max-width: 70%;
+    width: 250px;
+    padding: 10px 12px;
+  }
+  .arc-toast strong {
+    font-size: 11px;
+  }
+  .arc-toast p {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+  .arc-toast button {
+    font-size: 8px;
+  }
+  .arc-toast > span {
+    font-size: 7px;
+  }
+  .arc-weapon {
+    bottom: 10px;
+    left: 10px;
+    font-size: 8px;
+    padding: 5px 7px;
+  }
+  .arc-weapon b {
+    font-size: 7px;
+  }
+  .arc-boss-health {
+    top: 12px;
+    left: 18%;
+    right: 18%;
+  }
+  .arc-boss-health span {
+    font-size: 9px;
+  }
+  .arcade-overlay {
+    padding: 22px 16px;
+  }
+  .arcade-overlay h1 {
+    font-size: 34px;
+    margin: 9px 0;
+  }
+  .arcade-overlay p {
+    font-size: 12px;
+    margin-bottom: 18px;
+  }
+  .arcade-overlay .arcade-eyebrow {
+    font-size: 8px;
+  }
+  .arc-overlay-links {
+    margin-top: 19px;
+    gap: 15px;
+  }
+  .arc-overlay-links button {
+    font-size: 10px !important;
+  }
+  .arc-evolution {
+    margin: 0 0 15px;
+    padding: 8px 12px;
+    gap: 13px;
+  }
+  .arc-evolution > div {
+    height: 55px;
+    width: 35px;
+  }
+  .arc-evolution strong {
+    font-size: 15px;
+  }
+  .arc-evolution small {
+    font-size: 8px;
+  }
+  .arc-win-stats {
+    margin: 0 0 15px;
+  }
+  .arc-win-stats b {
+    font-size: 28px;
+  }
+  .arc-journal {
+    padding: 20px;
+    width: calc(100vw - 22px);
+    max-height: calc(100dvh - 25px);
+  }
+  .arc-journal h2 {
+    font-size: 29px;
+  }
+  .journal-layout {
+    grid-template-columns: 1fr;
+  }
+  .journal-layout nav {
+    flex-direction: row;
+    overflow: auto;
+    border: 0;
+    padding: 13px 0;
+  }
+  .journal-layout nav button {
+    min-width: 165px;
+    font-size: 10px;
+  }
+  .journal-layout article {
+    padding: 15px 0;
+  }
+  .journal-layout h3 {
+    font-size: 23px;
+  }
+  .journal-layout p {
+    font-size: 13px;
+  }
+  .arc-journal footer {
+    gap: 16px;
+  }
+}
+@media (max-width: 360px) {
+  .arcade-brand span {
+    font-size: 8px;
+  }
+  .arcade-tools b {
+    display: none;
+  }
+  .arcade-main {
+    padding: 9px 7px;
+  }
+  .title-copy h1 {
+    font-size: 49px;
+  }
+  .arcade-title {
+    padding: 18px;
+  }
+  .assist-setting span {
+    display: none;
+  }
+  .arc-touch {
+    width: 39px;
+    height: 48px;
+  }
+  .touch-aim {
+    width: 30px;
+  }
+  .touch-fire {
+    width: 46px;
+  }
+  .touch-movement,
+  .touch-action {
+    gap: 4px;
+  }
+  .arcade-overlay h1 {
+    font-size: 29px;
+  }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .arcade-header,
+  .arcade-under {
+    display: none;
+  }
+  .arcade-main {
+    padding: 0;
+  }
+  .arcade-machine {
+    width: 100%;
+    height: 100dvh;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .arcade-hud {
+    height: 43px;
+    min-height: 43px;
+    padding: 0 18px;
+  }
+  .arcade-scene {
+    height: calc(100dvh - 43px);
+    width: auto;
+    margin: auto;
+    aspect-ratio: 16/9;
+  }
+  .arc-touch-controls {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    background: none;
+    border: 0;
+    padding: 6px 14px;
+    pointer-events: none;
+  }
+  .arc-touch-controls button {
+    pointer-events: auto;
+    opacity: 0.82;
+  }
+  .arcade-controls {
+    display: none;
+  }
+  .arcade-title {
+    padding: 22px 34px;
+  }
+  .title-copy h1 {
+    font-size: 57px;
+    margin: 12px 0;
+  }
+  .title-copy p {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+  .assist-setting {
+    margin-top: 10px;
+  }
+  .title-mission strong {
+    font-size: 18px;
+  }
+  .arcade-overlay h1 {
+    font-size: 34px;
+  }
+  .arcade-overlay p {
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+  .arc-evolution {
+    display: none;
+  }
+  .arc-weapon {
+    bottom: 12px;
+    left: 40%;
+  }
+  .arcade-overlay {
+    padding: 20px;
+  }
+  .arc-win-stats {
+    margin-bottom: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arcade-root *,
+  .arc-journal * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

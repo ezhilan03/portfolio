@@ -37,7 +37,7 @@ export default function GameInvitation() {
           <p>
             {declined
               ? "Enjoy the portfolio. Game mode is always in the navigation."
-              : "Same human. Same work. Six levels to explore."}
+              : "Run. Jump. Shoot. Discover the human behind the work."}
           </p>
         </div>
       </div>
