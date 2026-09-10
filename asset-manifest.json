@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.5a56e229.css",
-    "main.js": "/portfolio/static/js/main.4c96c42d.js",
-    "static/js/721.353b9ca4.chunk.js": "/portfolio/static/js/721.353b9ca4.chunk.js",
+    "main.css": "/portfolio/static/css/main.a11e165f.css",
+    "main.js": "/portfolio/static/js/main.4d116edc.js",
+    "static/css/865.ed3e3dd9.chunk.css": "/portfolio/static/css/865.ed3e3dd9.chunk.css",
+    "static/js/865.7fc93656.chunk.js": "/portfolio/static/js/865.7fc93656.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
-    "static/js/525.42e9d3c5.chunk.js": "/portfolio/static/js/525.42e9d3c5.chunk.js",
+    "static/js/465.2c3130f1.chunk.js": "/portfolio/static/js/465.2c3130f1.chunk.js",
     "static/media/characters.png": "/portfolio/static/media/characters.44f55a76e39cae565bbb.png",
     "static/media/dimensionality.webp": "/portfolio/static/media/dimensionality.a60eb9f61dcb96104523.webp",
     "static/media/credit.webp": "/portfolio/static/media/credit.9e14ae9102215d4981c3.webp",
@@ -18,14 +19,15 @@
     "static/media/recon-engine.png": "/portfolio/static/media/recon-engine.13d035ce758b1cc260f8.png",
     "static/media/avatar.svg": "/portfolio/static/media/avatar.5852f40fbb38aa284829fa3fb7722225.svg",
     "index.html": "/portfolio/index.html",
-    "main.5a56e229.css.map": "/portfolio/static/css/main.5a56e229.css.map",
-    "main.4c96c42d.js.map": "/portfolio/static/js/main.4c96c42d.js.map",
-    "721.353b9ca4.chunk.js.map": "/portfolio/static/js/721.353b9ca4.chunk.js.map",
+    "main.a11e165f.css.map": "/portfolio/static/css/main.a11e165f.css.map",
+    "main.4d116edc.js.map": "/portfolio/static/js/main.4d116edc.js.map",
+    "865.ed3e3dd9.chunk.css.map": "/portfolio/static/css/865.ed3e3dd9.chunk.css.map",
+    "865.7fc93656.chunk.js.map": "/portfolio/static/js/865.7fc93656.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map",
-    "525.42e9d3c5.chunk.js.map": "/portfolio/static/js/525.42e9d3c5.chunk.js.map"
+    "465.2c3130f1.chunk.js.map": "/portfolio/static/js/465.2c3130f1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5a56e229.css",
-    "static/js/main.4c96c42d.js"
+    "static/css/main.a11e165f.css",
+    "static/js/main.4d116edc.js"
   ]
 }
