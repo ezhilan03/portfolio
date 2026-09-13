@@ -21,7 +21,7 @@ export const characters = [
   {
     id: "scholar",
     alias: "The Archive Scholar",
-    role: "Student Worker",
+    role: "Student Assistant",
     company: "The University of Texas at Dallas",
     period: "Jun 2024 – Sep 2024",
     chapter: "2024 · THE DISCOVERY",
