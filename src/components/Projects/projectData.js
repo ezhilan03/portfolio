@@ -1,3 +1,7 @@
+import professional0 from "../../Assets/Projects/merchant-onboarding.svg";
+import professional1 from "../../Assets/Projects/adf-data-lake.svg";
+import professional2 from "../../Assets/Projects/settlement-automation.svg";
+import professional3 from "../../Assets/Projects/self-service-analytics.svg";
 import stroke from "../../Assets/Projects/stroke.webp";
 import startup from "../../Assets/Projects/startup.webp";
 import dimensionality from "../../Assets/Projects/dimensionality.webp";
@@ -8,6 +12,10 @@ import fintechRag from "../../Assets/Projects/fintech-rag.png";
 import reconEngine from "../../Assets/Projects/recon-engine.png";
 
 export const projects = [
+  {"title": "Merchant onboarding application", "description": "Partner-specific files and manual merchant entry made onboarding repetitive and prone to corrections. I built an application that brought ingestion, validation and partner processing into a repeatable workflow for operations.", "ghLink": "https://github.com/ezhilan03/portfolio/tree/main/docs/professional-work/merchant-onboarding", "category": "Professional Work", "stack": ["Python", "API integration", "Validation", "Regression testing"], "image": professional0},
+  {"title": "Incremental Azure data platform", "description": "Different operational datasets needed different refresh schedules, while reporting and analytics needed a consistent downstream foundation. I designed a layered Azure data lake and ADF workflows to connect those needs.", "ghLink": "https://github.com/ezhilan03/portfolio/tree/main/docs/professional-work/adf-data-lake", "category": "Professional Work", "stack": ["Azure Data Factory", "SQL", "Incremental ingestion", "Data lakes"], "image": professional1},
+  {"title": "Settlement automation and billing controls", "description": "Credit/debit settlement work crossed internal operations, offshore engineering and an external EFT processor. Recurring billing also needed partner-specific calculations and explanations when reports disagreed.", "ghLink": "https://github.com/ezhilan03/portfolio/tree/main/docs/professional-work/settlement-automation", "category": "Professional Work", "stack": ["Payments", "SQL / Python", "API / SFTP", "Cross-team delivery"], "image": professional2},
+  {"title": "Self-service analytics chatbot", "description": "Recurring requests for data and insights placed work on the data team. I built a self-service analytics chatbot so business users could ask questions and receive answers through the application.", "ghLink": "https://github.com/ezhilan03/portfolio/tree/main/docs/professional-work/self-service-analytics", "category": "Professional Work", "stack": ["Google ADK", "Vertex AI", "BigQuery", "NL2SQL / BQML"], "image": professional3},
   {
     title: "Fintech Hybrid RAG Engine",
     description:
@@ -23,7 +31,7 @@ export const projects = [
       "Cloud Run",
     ],
     bullets: [
-      "Hybrid retrieval pipeline over PostgreSQL — BM25 + pgvector (HNSW) with reciprocal rank fusion — for ACH compliance Q&A; clause-level chunking delivered +47% recall over recursive, tuned for compliance recall.",
+      "Hybrid retrieval pipeline over PostgreSQL — BM25 + pgvector (HNSW) with reciprocal rank fusion — for ACH compliance Q&A; retrieval fixes improved context recall from 0.410 to 0.603 (+47% relative).",
       "RAGAS evaluation harness (faithfulness 0.829) that traced retrieval failures to BM25 index pollution and resolved them through query-type-aware weighting.",
     ],
     category: "AI & Agents",
@@ -37,7 +45,7 @@ export const projects = [
     stack: ["Python", "LangGraph", "MCP", "litellm", "PostgreSQL", "Docker"],
     bullets: [
       "Deterministic matcher fronting a LangGraph multi-agent investigator with MCP tools and human-in-the-loop gate; 83.3% accuracy across ~80% of volume, reserving agent reasoning for exceptions.",
-      "Ground-truth evaluation harness that caught two regressions from plausible-looking fixes; measured confidence inversely correlated with correctness, dropping self-reported confidence from routing.",
+      "Ground-truth evaluation harness that caught two regressions from plausible-looking fixes; measured confidence inversely correlated with correctness, adding a deterministic value threshold independent of model confidence.",
     ],
     category: "AI & Agents",
     image: reconEngine,

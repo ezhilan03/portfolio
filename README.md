@@ -48,3 +48,8 @@ Recommendations are awaiting the user’s approved quotes. No fabricated quotes 
 ## Publish
 
 Run `npm run deploy` to build and publish to the repository’s `gh-pages` branch. The postbuild script generates documents for each public route so GitHub Pages can serve them directly.
+
+
+## Professional engineering case studies
+
+[Explore completed Spire work](docs/professional-work/README.md): merchant onboarding, incremental Azure data pipelines, settlement automation and the self-service analytics chatbot. Each case study explains personal contribution, decisions and outcome scope.

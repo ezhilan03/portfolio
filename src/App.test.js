@@ -24,7 +24,7 @@ beforeEach(() => {
   localStorage.clear();
 });
 
-test("navigation exposes the original content and filters all eight projects", () => {
+test("navigation exposes the original content and filters projects and professional case studies", () => {
   render(<App />);
   expect(
     screen.getByRole("heading", { name: /I'M Ezhilan Chinnasamy/ }),
@@ -34,7 +34,9 @@ test("navigation exposes the original content and filters all eight projects", (
       screen.getByRole("navigation", { name: "Main navigation" }),
     ).getByRole("link", { name: "Projects" }),
   );
-  expect(screen.getAllByRole("article")).toHaveLength(8);
+  expect(screen.getAllByRole("article")).toHaveLength(12);
+  fireEvent.click(screen.getByRole("button", { name: /Professional Work/ }));
+  expect(screen.getAllByRole("article")).toHaveLength(4);
   fireEvent.click(screen.getByRole("button", { name: /AI & Agents/ }));
   expect(screen.getAllByRole("article")).toHaveLength(2);
   fireEvent.change(screen.getByRole("searchbox", { name: "Search projects" }), {
@@ -42,7 +44,7 @@ test("navigation exposes the original content and filters all eight projects", (
   });
   expect(screen.getByText("No projects found.")).toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: "Reset filters" }));
-  expect(screen.getAllByRole("article")).toHaveLength(8);
+  expect(screen.getAllByRole("article")).toHaveLength(12);
   fireEvent.change(screen.getByRole("searchbox", { name: "Search projects" }), {
     target: { value: "RAGAS" },
   });

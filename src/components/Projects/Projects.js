@@ -26,13 +26,13 @@ export default function Projects() {
         <span className="eyebrow">01 / Projects</span>
         <h1>
           My Recent <em>Works</em>
-          <sup>08</sup>
+          <sup>{String(projects.length).padStart(2, "0")}</sup>
         </h1>
         <p>Here are a few projects I've worked on recently.</p>
       </div>
       <div className="project-toolbar">
         <div className="filter-tabs" aria-label="Filter projects">
-          {["All projects", "AI & Agents", "Machine Learning"].map((label) => (
+          {["All projects", ...new Set(projects.map(project => project.category))].map((label) => (
             <button
               key={label}
               aria-pressed={category === label}
@@ -42,7 +42,7 @@ export default function Projects() {
             >
               {label}
               <span>
-                {label === "All projects" ? 8 : label === "AI & Agents" ? 2 : 6}
+                {label === "All projects" ? projects.length : projects.filter(project => project.category === label).length}
               </span>
             </button>
           ))}
