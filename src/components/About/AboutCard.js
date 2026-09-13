@@ -10,9 +10,9 @@ function AboutCard() {
           <p>
             Hey people, I'm <span className="purple">Ezhilan Chinnasamy</span>{" "}
             (you can call me "EZ" – it’s as easy as I make data look!). I'm from{" "}
-            <span className="">Dallas, TX</span>, and I currently work as a{" "}
+            <span className="">Dallas, TX</span>, and I previously worked as a{" "}
             <span className="purple">Business Intelligence Analyst</span> at Pay
-            with Spire. I hold a Master's (MS) in Business Analytics and
+            with Spire (September 2024–June 2026). I am open to UK relocation. I hold a Master's (MS) in Business Analytics and
             Artificial Intelligence from{" "}
             <span className="purple">The University of Texas at Dallas</span>.
           </p>

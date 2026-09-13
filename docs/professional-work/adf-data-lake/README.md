@@ -29,6 +29,10 @@ My work covered data-lake design, scheduled ingestion and archival workflows. I 
 - Daily and weekly schedules reflect different freshness needs; some marketing feeds ran at ten-minute intervals.
 - Archival and alerting are part of operating a pipeline, not separate dashboard features. Specific retention periods and retry policies are not claimed here.
 
+## Related orchestration and monitoring experience
+
+I also worked with Airflow and led the Vietnam team in building Grafana dashboards for business operations. Those are related parts of my experience; the ADF pipeline volumes above are not attributed to Airflow, and business dashboards are distinct from infrastructure monitoring.
+
 ## Outcome and measurement
 
 Approximately **2M record movements per day** across the wider set of pipelines. This is aggregate movement, not unique customers. Standard Zendesk incremental runs processed approximately **500–1,200 changed tickets per day**; the initial historical load was a separate operation.
