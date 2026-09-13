@@ -99,14 +99,15 @@ test("keyboard search navigates to a matching project and resume retains the ori
   );
 });
 
-test("direct game links with trailing slashes load and exit to the portfolio", async () => {
-  window.history.replaceState({}, "", "/play/");
+test.each(["/play", "/play/", "/play/old-link"])("hidden game route %s returns to the portfolio", async (path) => {
+  window.history.replaceState({}, "", path);
   render(<App />);
   expect(
-    await screen.findByRole("heading", { name: /AFTER/ }),
+    await screen.findByRole("heading", { name: /I'M Ezhilan Chinnasamy/ }),
   ).toBeInTheDocument();
-  fireEvent.click(screen.getByRole("link", { name: "Exit game" }));
-  expect(
-    screen.getByRole("heading", { name: /I'M Ezhilan Chinnasamy/ }),
-  ).toBeInTheDocument();
+  expect(window.location.pathname).toBe("/");
+  expect(screen.queryByRole("link", { name: /Enter game mode/ })).not.toBeInTheDocument();
+  expect(screen.queryByText(/Yes, let’s play/)).not.toBeInTheDocument();
+  fireEvent.keyDown(window, { key: "k", ctrlKey: true });
+  expect(within(screen.getByRole("dialog")).queryByRole("link", { name: /Game mode/ })).not.toBeInTheDocument();
 });

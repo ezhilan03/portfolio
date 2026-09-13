@@ -1,10 +1,10 @@
-import React, { useEffect, useState, lazy, Suspense } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   Link,
-  useLocation,
+  Navigate,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
@@ -17,29 +17,6 @@ import CommandMenu from "./components/CommandMenu";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import "./App.css";
-import GameInvitation from "./components/Game/GameInvitation";
-import "./components/Game/game.css";
-const GameMode = lazy(() => import("./components/Game/GameMode"));
-function SiteFrame({ children }) {
-  const { pathname } = useLocation();
-  const isGame = /^\/play\/?$/.test(pathname);
-  useEffect(() => {
-    if (!isGame) document.title = "EZ | Portfolio";
-  }, [pathname, isGame]);
-  return isGame ? (
-    <Suspense
-      fallback={
-        <div className="game-loading" role="status">
-          Loading the adventure…
-        </div>
-      }
-    >
-      <GameMode />
-    </Suspense>
-  ) : (
-    children
-  );
-}
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -68,7 +45,6 @@ function App() {
   }, []);
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      <SiteFrame>
         <div className="App">
           <a className="skip-link" href="#main-content">
             Skip to content
@@ -78,7 +54,6 @@ function App() {
             onTheme={() => setTheme(theme === "light" ? "dark" : "light")}
             onSearch={() => setCommandOpen(true)}
           />
-          <GameInvitation />
           <ScrollToTop />
           <main id="main-content" tabIndex={-1}>
             <Routes>
@@ -86,6 +61,8 @@ function App() {
               <Route path="/project" element={<Projects />} />
               <Route path="/about" element={<About />} />
               <Route path="/resume" element={<Resume />} />
+              {/* Keep old bookmarks useful while the game is unpublished. */}
+              <Route path="/play/*" element={<Navigate to="/" replace />} />
               <Route
                 path="*"
                 element={
@@ -106,7 +83,6 @@ function App() {
             onClose={() => setCommandOpen(false)}
           />
         </div>
-      </SiteFrame>
     </Router>
   );
 }

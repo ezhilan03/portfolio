@@ -43,13 +43,6 @@ export default function Navbar({ theme, onTheme, onSearch }) {
           ))}
         </nav>
         <div className="nav-actions">
-          <Link
-            className="game-entry-link"
-            to="/play"
-            aria-label="Enter game mode"
-          >
-            ✦ <span>Play</span>
-          </Link>
           <button
             className="icon-button search-toggle"
             onClick={onSearch}
