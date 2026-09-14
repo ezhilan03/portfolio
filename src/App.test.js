@@ -34,17 +34,20 @@ test("navigation exposes the original content and filters projects and professio
       screen.getByRole("navigation", { name: "Main navigation" }),
     ).getByRole("link", { name: "Projects" }),
   );
-  expect(screen.getAllByRole("article")).toHaveLength(12);
+  expect(screen.getAllByRole("article")).toHaveLength(13);
   fireEvent.click(screen.getByRole("button", { name: /Professional Work/ }));
   expect(screen.getAllByRole("article")).toHaveLength(4);
   fireEvent.click(screen.getByRole("button", { name: /AI & Agents/ }));
   expect(screen.getAllByRole("article")).toHaveLength(2);
+  fireEvent.click(screen.getByRole("button", { name: "Data Engineering" }));
+  expect(screen.getAllByRole("article")).toHaveLength(1);
+  expect(screen.getByRole("heading", { name: "Fitness Data Platform" })).toBeInTheDocument();
   fireEvent.change(screen.getByRole("searchbox", { name: "Search projects" }), {
     target: { value: "unknown project" },
   });
   expect(screen.getByText("No projects found.")).toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: "Reset filters" }));
-  expect(screen.getAllByRole("article")).toHaveLength(12);
+  expect(screen.getAllByRole("article")).toHaveLength(13);
   fireEvent.change(screen.getByRole("searchbox", { name: "Search projects" }), {
     target: { value: "RAGAS" },
   });

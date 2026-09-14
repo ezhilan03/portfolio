@@ -9,6 +9,7 @@ import walmart from "../../Assets/Projects/Wallmart.webp";
 import credit from "../../Assets/Projects/credit.webp";
 import ecommerce from "../../Assets/Projects/e-commerce.webp";
 import fintechRag from "../../Assets/Projects/fintech-rag-release.svg";
+import fitnessPlatform from "../../Assets/Projects/fitness-platform.svg";
 import reconEngine from "../../Assets/Projects/recon-engine-release.svg";
 
 export const projects = [
@@ -35,6 +36,16 @@ export const projects = [
     bullets: ["Built deterministic ledger-to-settlement matching with durable allocation guards, replay-safe ingestion, LangGraph investigation tools and human-review routing.", "Shipped an AWS batch demo processing 500 synthetic transactions and 531 settlement lines; verified backup restoration and duplicate-safe replay, with 383 transactions matched and 117 retained for review."],
     category: "AI & Agents",
     image: reconEngine,
+  },
+  {
+    title: "Fitness Data Platform",
+    description: "Synthetic wearable data with point-in-time history, daily and weekly summaries, tested orchestration and an on-demand AWS deployment.",
+    ghLink: "https://github.com/ezhilan03/fitness-data-platform",
+    caseStudyLink: "https://github.com/ezhilan03/portfolio/tree/main/docs/projects/fitness-data-platform",
+    stack: ["Python", "SQL", "dbt", "DuckDB", "Airflow", "Docker", "Terraform", "AWS Fargate", "Lambda", "GitHub Actions"],
+    bullets: ["Preserved source revisions and knowledge timestamps; verified corrections, late arrivals, device identity, missing values and incremental/full-refresh parity across eight dbt scenarios.", "Executed seven Airflow intervals with retry recovery and two backfills; deployed container batches and an IAM-authenticated summary API with private versioned storage and SQS failure alerts."],
+    category: "Data Engineering",
+    image: fitnessPlatform,
   },
   {
     title: "Walmart Sales Forecasting",
