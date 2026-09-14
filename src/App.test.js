@@ -39,7 +39,7 @@ test("navigation exposes the original content and filters projects and professio
   expect(screen.getAllByRole("article")).toHaveLength(4);
   fireEvent.click(screen.getByRole("button", { name: /AI & Agents/ }));
   expect(screen.getAllByRole("article")).toHaveLength(2);
-  fireEvent.click(screen.getByRole("button", { name: "Data Engineering" }));
+  fireEvent.click(screen.getByRole("button", { name: /Data Engineering/ }));
   expect(screen.getAllByRole("article")).toHaveLength(1);
   expect(screen.getByRole("heading", { name: "Fitness Data Platform" })).toBeInTheDocument();
   fireEvent.change(screen.getByRole("searchbox", { name: "Search projects" }), {
