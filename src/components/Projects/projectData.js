@@ -8,8 +8,8 @@ import dimensionality from "../../Assets/Projects/dimensionality.webp";
 import walmart from "../../Assets/Projects/Wallmart.webp";
 import credit from "../../Assets/Projects/credit.webp";
 import ecommerce from "../../Assets/Projects/e-commerce.webp";
-import fintechRag from "../../Assets/Projects/fintech-rag.png";
-import reconEngine from "../../Assets/Projects/recon-engine.png";
+import fintechRag from "../../Assets/Projects/fintech-rag-release.svg";
+import reconEngine from "../../Assets/Projects/recon-engine-release.svg";
 
 export const projects = [
   {"title": "Merchant onboarding application", "description": "Partner-specific files and manual merchant entry made onboarding repetitive and prone to corrections. I built an application that brought ingestion, validation and partner processing into a repeatable workflow for operations.", "ghLink": "https://github.com/ezhilan03/portfolio/tree/main/docs/professional-work/merchant-onboarding", "category": "Professional Work", "stack": ["Python", "API integration", "Validation", "Regression testing"], "image": professional0},
@@ -18,35 +18,21 @@ export const projects = [
   {"title": "Self-service analytics chatbot", "description": "Recurring requests for data and insights placed work on the data team. I built a self-service analytics chatbot so business users could ask questions and receive answers through the application.", "ghLink": "https://github.com/ezhilan03/portfolio/tree/main/docs/professional-work/self-service-analytics", "category": "Professional Work", "stack": ["Google ADK", "Vertex AI", "BigQuery", "NL2SQL / BQML"], "image": professional3},
   {
     title: "Fintech Hybrid RAG Engine",
-    description:
-      "Hybrid retrieval engine over PostgreSQL for ACH compliance Q&A, evaluated end to end with RAGAS.",
+    description: "Released on-demand AWS demo: versioned ingestion, traceable answers and tested recovery over synthetic payment policies.",
     ghLink: "https://github.com/ezhilan03/fintech-rag",
-    stack: [
-      "Python",
-      "PostgreSQL",
-      "pgvector (HNSW)",
-      "BM25",
-      "RAGAS",
-      "Docker",
-      "Cloud Run",
-    ],
-    bullets: [
-      "Hybrid retrieval pipeline over PostgreSQL — BM25 + pgvector (HNSW) with reciprocal rank fusion — for ACH compliance Q&A; retrieval fixes improved context recall from 0.410 to 0.603 (+47% relative).",
-      "RAGAS evaluation harness (faithfulness 0.829) that traced retrieval failures to BM25 index pollution and resolved them through query-type-aware weighting.",
-    ],
+    caseStudyLink: "https://github.com/ezhilan03/portfolio/tree/main/docs/projects/fintech-rag",
+    stack: ["Python", "PostgreSQL", "pgvector", "BM25", "RAGAS", "Docker", "Terraform", "GitHub Actions", "AWS"],
+    bullets: ["Built versioned document ingestion and hybrid BM25/pgvector retrieval with validated citations and explicit abstention; verified 84 tests, seven retrieval cases and eight controlled-context grounding cases.", "Deployed an on-demand AWS demo with Docker, Terraform and GitHub Actions OIDC; verified live queries, encrypted backup restoration, dependency recovery and automatic shutdown."],
     category: "AI & Agents",
     image: fintechRag,
   },
   {
     title: "Multi-Agent Financial Reconciliation Engine",
-    description:
-      "Deterministic matcher fronting a LangGraph multi-agent investigator, escalating only the exceptions that need reasoning.",
+    description: "Released AWS batch project with durable payment allocation, safe replay, human review and verified backup recovery.",
     ghLink: "https://github.com/ezhilan03/recon-engine",
-    stack: ["Python", "LangGraph", "MCP", "litellm", "PostgreSQL", "Docker"],
-    bullets: [
-      "Deterministic matcher fronting a LangGraph multi-agent investigator with MCP tools and human-in-the-loop gate; 83.3% accuracy across ~80% of volume, reserving agent reasoning for exceptions.",
-      "Ground-truth evaluation harness that caught two regressions from plausible-looking fixes; measured confidence inversely correlated with correctness, adding a deterministic value threshold independent of model confidence.",
-    ],
+    caseStudyLink: "https://github.com/ezhilan03/portfolio/tree/main/docs/projects/recon-engine",
+    stack: ["Python", "SQL", "LangGraph", "MCP", "PostgreSQL", "Docker", "Terraform", "AWS"],
+    bullets: ["Built deterministic ledger-to-settlement matching with durable allocation guards, replay-safe ingestion, LangGraph investigation tools and human-review routing.", "Shipped an AWS batch demo processing 500 synthetic transactions and 531 settlement lines; verified backup restoration and duplicate-safe replay, with 383 transactions matched and 117 retained for review."],
     category: "AI & Agents",
     image: reconEngine,
   },

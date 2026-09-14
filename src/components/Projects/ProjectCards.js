@@ -7,6 +7,7 @@ export default function ProjectCards({
   stack,
   bullets,
   ghLink,
+  caseStudyLink,
   index = 0,
 }) {
   return (
@@ -35,6 +36,7 @@ export default function ProjectCards({
           </a>
         </div>
         <h3>{title}</h3>
+        {caseStudyLink && <a className="text-link" href={caseStudyLink} target="_blank" rel="noreferrer">Case study & verified results <FiArrowUpRight /></a>}
         <p>{description}</p>
         {stack && (
           <div className="project-stack">
