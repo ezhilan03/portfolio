@@ -7,6 +7,7 @@ jest.mock("./components/Game/arcadeRenderer", () => ({
 
 beforeAll(() => {
   window.scrollTo = jest.fn();
+  HTMLElement.prototype.scrollIntoView = jest.fn();
   HTMLCanvasElement.prototype.getContext = () => ({});
   global.ResizeObserver = class {
     observe() {}
@@ -27,12 +28,12 @@ beforeEach(() => {
 test("navigation exposes the original content and filters all eight projects", () => {
   render(<App />);
   expect(
-    screen.getByRole("heading", { name: /I'M Ezhilan Chinnasamy/ }),
+    screen.getByRole("heading", { name: /Ezhilan Chinnasamy/ }),
   ).toBeInTheDocument();
   fireEvent.click(
     within(
       screen.getByRole("navigation", { name: "Main navigation" }),
-    ).getByRole("link", { name: "Projects" }),
+    ).getByRole("link", { name: "Work" }),
   );
   expect(screen.getAllByRole("article")).toHaveLength(8);
   fireEvent.click(screen.getByRole("button", { name: /AI & Agents/ }));
@@ -56,23 +57,16 @@ test("navigation exposes the original content and filters all eight projects", (
   expect(window.location.search).toContain("view=list");
 });
 
-test("theme and mobile navigation expose their current state", () => {
+test("theme persists and visible navigation reaches About", () => {
   render(<App />);
   fireEvent.click(screen.getByRole("button", { name: "Switch to dark theme" }));
   expect(document.documentElement.dataset.theme).toBe("dark");
   expect(localStorage.getItem("ez-theme")).toBe("dark");
-  fireEvent.click(screen.getByRole("button", { name: "Open navigation" }));
-  expect(
-    screen.getByRole("button", { name: "Close navigation" }),
-  ).toHaveAttribute("aria-expanded", "true");
   fireEvent.click(
     within(
       screen.getByRole("navigation", { name: "Main navigation" }),
     ).getByRole("link", { name: "About" }),
   );
-  expect(
-    screen.getByRole("button", { name: "Open navigation" }),
-  ).toHaveAttribute("aria-expanded", "false");
   expect(screen.getByText("Professional")).toBeInTheDocument();
 });
 
@@ -99,15 +93,42 @@ test("keyboard search navigates to a matching project and resume retains the ori
   );
 });
 
-test.each(["/play", "/play/", "/play/old-link"])("hidden game route %s returns to the portfolio", async (path) => {
-  window.history.replaceState({}, "", path);
+test.each(["/play", "/play/", "/play/old-link"])(
+  "hidden game route %s returns to the portfolio",
+  async (path) => {
+    window.history.replaceState({}, "", path);
+    render(<App />);
+    expect(
+      await screen.findByRole("heading", { name: /Ezhilan Chinnasamy/ }),
+    ).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/");
+    expect(
+      screen.queryByRole("link", { name: /Enter game mode/ }),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText(/Yes, let’s play/)).not.toBeInTheDocument();
+    fireEvent.keyDown(window, { key: "k", ctrlKey: true });
+    expect(
+      within(screen.getByRole("dialog")).queryByRole("link", {
+        name: /Game mode/,
+      }),
+    ).not.toBeInTheDocument();
+  },
+);
+
+test("experience is directly reachable from another page and the optional lamp toggles", () => {
   render(<App />);
-  expect(
-    await screen.findByRole("heading", { name: /I'M Ezhilan Chinnasamy/ }),
-  ).toBeInTheDocument();
-  expect(window.location.pathname).toBe("/");
-  expect(screen.queryByRole("link", { name: /Enter game mode/ })).not.toBeInTheDocument();
-  expect(screen.queryByText(/Yes, let’s play/)).not.toBeInTheDocument();
-  fireEvent.keyDown(window, { key: "k", ctrlKey: true });
-  expect(within(screen.getByRole("dialog")).queryByRole("link", { name: /Game mode/ })).not.toBeInTheDocument();
+  const nav = within(
+    screen.getByRole("navigation", { name: "Main navigation" }),
+  );
+  fireEvent.click(nav.getByRole("link", { name: "Work" }));
+  fireEvent.click(nav.getByRole("link", { name: "Experience" }));
+  expect(window.location.hash).toBe("#experience");
+  const experience = screen.getByRole("region", { name: "Work Experience" });
+  expect(within(experience).getAllByRole("article")).toHaveLength(3);
+  expect(within(experience).getByText("Student Assistant")).toBeVisible();
+  expect(HTMLElement.prototype.scrollIntoView).toHaveBeenCalled();
+  const lamp = screen.getByRole("button", { name: "Desk lamp" });
+  expect(lamp).toHaveAttribute("aria-pressed", "false");
+  fireEvent.click(lamp);
+  expect(lamp).toHaveAttribute("aria-pressed", "true");
 });

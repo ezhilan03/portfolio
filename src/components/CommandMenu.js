@@ -13,6 +13,7 @@ export default function CommandMenu({ open, onClose }) {
   }, [open]);
   const pages = [
     ["Home", "/"],
+    ["Experience", "/#experience"],
     ["About", "/about"],
     ["Projects", "/project"],
     ["Resume", "/resume"],
