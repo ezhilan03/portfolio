@@ -1,5 +1,5 @@
 # Preserve approved published work
-Before any portfolio edit, fetch all remote branches and inspect `origin/gh-pages:deployment-source.json`, origin/main, and existing worktrees. The currently published design is authoritative even when it originated on another task's branch. Read the corresponding task/history if source lineage is unclear; never infer that a branch is unpublished from its name.
+Before any portfolio edit, fetch all remote branches and inspect the live `https://ezhilan03.github.io/portfolio/deployment-source.json`, origin/main, and existing worktrees (gh-pages is historical only after the workflow migration). The currently published design is authoritative even when it originated on another task's branch. Read the corresponding task/history if source lineage is unclear; never infer that a branch is unpublished from its name.
 
 The approved Ink and Copper design originates at facbb87. Content-only requests must preserve its layout, copper lamp, visible experience section, navigation and styling. Use stable project identifiers/titles rather than array positions. Preserve the latest resume and all five released project records.
 
