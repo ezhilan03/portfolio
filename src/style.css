@@ -874,6 +874,7 @@ img {
 }
 .filter-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
 }
 .filter-tabs button {
@@ -1399,8 +1400,8 @@ img {
   }
   .filter-tabs {
     width: 100%;
-    justify-content: space-between;
-    gap: 0;
+    justify-content: flex-start;
+    gap: 4px;
   }
   .filter-tabs button {
     padding: 9px;

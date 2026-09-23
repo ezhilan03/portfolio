@@ -4,7 +4,7 @@
 
 [Verified cloud implementation](https://github.com/ezhilan03/recon-engine/tree/2d5f2eecd8d4096a6753d22217a6c0c4e4a6cb48) · [Published image](https://github.com/ezhilan03/recon-engine/actions/runs/34785547354) · [Successful cloud run](https://github.com/ezhilan03/recon-engine/actions/runs/34785949568)
 
-The AWS batch milestone is evidenced by the linked successful run; no versioned GitHub release is published. The repository README retains earlier local-milestone notes.
+The AWS batch milestone is evidenced by the linked successful run; no versioned GitHub release is published.
 
 ## Problem
 
