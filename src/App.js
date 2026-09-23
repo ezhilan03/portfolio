@@ -17,6 +17,7 @@ import CommandMenu from "./components/CommandMenu";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import "./App.css";
+import "./copper.css";
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -45,44 +46,41 @@ function App() {
   }, []);
   return (
     <Router basename={process.env.PUBLIC_URL}>
-        <div className="App">
-          <a className="skip-link" href="#main-content">
-            Skip to content
-          </a>
-          <Navbar
-            theme={theme}
-            onTheme={() => setTheme(theme === "light" ? "dark" : "light")}
-            onSearch={() => setCommandOpen(true)}
-          />
-          <ScrollToTop />
-          <main id="main-content" tabIndex={-1}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/project" element={<Projects />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/resume" element={<Resume />} />
-              {/* Keep old bookmarks useful while the game is unpublished. */}
-              <Route path="/play/*" element={<Navigate to="/" replace />} />
-              <Route
-                path="*"
-                element={
-                  <section className="page-shell not-found">
-                    <span className="eyebrow">404</span>
-                    <h1>Page not found.</h1>
-                    <Link className="button primary" to="/">
-                      Back to Home ↗
-                    </Link>
-                  </section>
-                }
-              />
-            </Routes>
-          </main>
-          <Footer />
-          <CommandMenu
-            open={commandOpen}
-            onClose={() => setCommandOpen(false)}
-          />
-        </div>
+      <div className="App">
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
+        <Navbar
+          theme={theme}
+          onTheme={() => setTheme(theme === "light" ? "dark" : "light")}
+          onSearch={() => setCommandOpen(true)}
+        />
+        <ScrollToTop />
+        <main id="main-content" tabIndex={-1}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/project" element={<Projects />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/resume" element={<Resume />} />
+            {/* Keep old bookmarks useful while the game is unpublished. */}
+            <Route path="/play/*" element={<Navigate to="/" replace />} />
+            <Route
+              path="*"
+              element={
+                <section className="page-shell not-found">
+                  <span className="eyebrow">404</span>
+                  <h1>Page not found.</h1>
+                  <Link className="button primary" to="/">
+                    Back to Home ↗
+                  </Link>
+                </section>
+              }
+            />
+          </Routes>
+        </main>
+        <Footer />
+        <CommandMenu open={commandOpen} onClose={() => setCommandOpen(false)} />
+      </div>
     </Router>
   );
 }

@@ -24,14 +24,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh workflow run pages.yml --ref main",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "postbuild": "node scripts/pages-routes.cjs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-    
   },
   "eslintConfig": {
     "extends": [
