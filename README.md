@@ -49,7 +49,7 @@ Recommendations are awaiting the user’s approved quotes. No fabricated quotes 
 
 ## Publish
 
-Run `npm run deploy` to build and publish to the repository’s `gh-pages` branch. The postbuild script generates documents for each public route so GitHub Pages can serve them directly.
+Push reviewed changes to `main` to run the canonical GitHub Actions Pages workflow, or use `npm run deploy` to dispatch it. Pages uses workflow mode; legacy `gh-pages` pushes do not publish. The workflow checks that the source includes the approved Ink and Copper design (`facbb87`) and the currently published source recorded in the live `deployment-source.json`, then tests, builds and publishes. Never bypass these checks or switch Pages back to branch mode. The postbuild script generates documents for each public route. See `AGENTS.md` for preservation rules.
 
 
 ## Professional engineering case studies
