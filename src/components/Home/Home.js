@@ -76,7 +76,7 @@ export default function Home() {
             </h2>
           </div>
           <Link className="text-link" to="/project">
-            All projects <span className="count">08</span>
+            All projects <span className="count">{projects.length}</span>
             <FiArrowUpRight />
           </Link>
         </div>
@@ -84,7 +84,7 @@ export default function Home() {
           Here are a few projects I've worked on recently.
         </p>
         <div className="featured-grid">
-          {projects.slice(0, 2).map((project, index) => (
+          {projects.filter((project) => project.caseStudyLink).slice(0, 2).map((project, index) => (
             <ProjectCard
               key={project.title}
               {...project}

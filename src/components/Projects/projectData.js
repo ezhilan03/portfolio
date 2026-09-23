@@ -12,14 +12,37 @@ import fintechRag from "../../Assets/Projects/fintech-rag-release.svg";
 import fitnessPlatform from "../../Assets/Projects/fitness-platform.svg";
 import reconEngine from "../../Assets/Projects/recon-engine-release.svg";
 
+import underwriting from "../../Assets/Projects/underwriting-risk.svg";
+import revenue from "../../Assets/Projects/revenue-pipeline.svg";
+
 export const projects = [
   {"title": "Merchant onboarding application", "description": "Partner-specific files and manual merchant entry made onboarding repetitive and prone to corrections. I built an application that brought ingestion, validation and partner processing into a repeatable workflow for operations.", "ghLink": "https://github.com/ezhilan03/portfolio/tree/main/docs/professional-work/merchant-onboarding", "category": "Professional Work", "stack": ["Python", "API integration", "Validation", "Regression testing"], "image": professional0},
   {"title": "Incremental Azure data platform", "description": "Different operational datasets needed different refresh schedules, while reporting and analytics needed a consistent downstream foundation. I designed a layered Azure data lake and ADF workflows to connect those needs.", "ghLink": "https://github.com/ezhilan03/portfolio/tree/main/docs/professional-work/adf-data-lake", "category": "Professional Work", "stack": ["Azure Data Factory", "SQL", "Incremental ingestion", "Data lakes"], "image": professional1},
   {"title": "Settlement automation and billing controls", "description": "Credit/debit settlement work crossed internal operations, offshore engineering and an external EFT processor. Recurring billing also needed partner-specific calculations and explanations when reports disagreed.", "ghLink": "https://github.com/ezhilan03/portfolio/tree/main/docs/professional-work/settlement-automation", "category": "Professional Work", "stack": ["Payments", "SQL / Python", "API / SFTP", "Cross-team delivery"], "image": professional2},
   {"title": "Self-service analytics chatbot", "description": "Recurring requests for data and insights placed work on the data team. I built a self-service analytics chatbot so business users could ask questions and receive answers through the application.", "ghLink": "https://github.com/ezhilan03/portfolio/tree/main/docs/professional-work/self-service-analytics", "category": "Professional Work", "stack": ["Google ADK", "Vertex AI", "BigQuery", "NL2SQL / BQML"], "image": professional3},
   {
+    title: "Underwriting & Payment Risk",
+    description: "v0.1.0: point-in-time risk features and temporal model evaluation, delivered to a billing-disabled BigQuery Sandbox.",
+    ghLink: "https://github.com/ezhilan03/underwriting-payment-risk",
+    caseStudyLink: "https://github.com/ezhilan03/portfolio/tree/main/docs/projects/underwriting-payment-risk",
+    stack: ["Python", "SQL", "BigQuery", "dbt", "DuckDB", "scikit-learn", "Docker", "GCP"],
+    bullets: ["Preserved two vendor schemas, decision-time knowledge and matured outcomes across 3,600 synthetic applications; compared logistic and gradient-boosted models using temporal splits.", "Verified six BigQuery source tables, five dbt models and 17 data tests, exact local/cloud parity and source restoration; replay reused all tables without new load jobs. Model compute remains local."],
+    category: "Data Engineering",
+    image: underwriting,
+  },
+  {
+    title: "Revenue Pipeline Reliability & Forecasting",
+    description: "Verified local release: preserve CRM and contract history, publish validated exceptions and investigate missing signed contracts.",
+    ghLink: "https://github.com/ezhilan03/revenue-pipeline",
+    caseStudyLink: "https://github.com/ezhilan03/portfolio/tree/main/docs/projects/revenue-pipeline",
+    stack: ["Python", "SQL", "PostgreSQL", "dbt", "Airflow", "FastAPI", "Prometheus", "Grafana", "Docker"],
+    bullets: ["Built append-only ingestion, checksum-addressed raw replay and frozen publication so an incomplete run cannot replace the last validated result.", "Verified PostgreSQL-backed tests, Airflow scheduling, authenticated investigation, restricted database identities and local monitoring/recovery. Azure deployment remains deferred."],
+    category: "Data Engineering",
+    image: revenue,
+  },
+  {
     title: "Fintech Hybrid RAG Engine",
-    description: "Released on-demand AWS demo: versioned ingestion, traceable answers and tested recovery over synthetic payment policies.",
+    description: "v0.2.0 on-demand AWS demo: versioned ingestion, traceable answers and tested recovery over synthetic payment policies.",
     ghLink: "https://github.com/ezhilan03/fintech-rag",
     caseStudyLink: "https://github.com/ezhilan03/portfolio/tree/main/docs/projects/fintech-rag",
     stack: ["Python", "PostgreSQL", "pgvector", "BM25", "RAGAS", "Docker", "Terraform", "GitHub Actions", "AWS"],
@@ -39,7 +62,7 @@ export const projects = [
   },
   {
     title: "Fitness Data Platform",
-    description: "Synthetic wearable data with point-in-time history, daily and weekly summaries, tested orchestration and an on-demand AWS deployment.",
+    description: "v1.0.0 synthetic wearable data with point-in-time history, daily and weekly summaries, tested orchestration and an on-demand AWS deployment.",
     ghLink: "https://github.com/ezhilan03/fitness-data-platform",
     caseStudyLink: "https://github.com/ezhilan03/portfolio/tree/main/docs/projects/fitness-data-platform",
     stack: ["Python", "SQL", "dbt", "DuckDB", "Airflow", "Docker", "Terraform", "AWS Fargate", "Lambda", "GitHub Actions"],

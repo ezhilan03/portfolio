@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.1bbb1b90.css",
-    "main.js": "/portfolio/static/js/main.2ccb171d.js",
+    "main.js": "/portfolio/static/js/main.e785e13d.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/dimensionality.webp": "/portfolio/static/media/dimensionality.a60eb9f61dcb96104523.webp",
     "static/media/credit.webp": "/portfolio/static/media/credit.9e14ae9102215d4981c3.webp",
@@ -20,12 +20,14 @@
     "static/media/merchant-onboarding.svg": "/portfolio/static/media/merchant-onboarding.7d945abc072d3f22e00ab06fb30a2704.svg",
     "static/media/fitness-platform.svg": "/portfolio/static/media/fitness-platform.7436622ebf6083c26b94fc799467a739.svg",
     "index.html": "/portfolio/index.html",
+    "static/media/revenue-pipeline.svg": "/portfolio/static/media/revenue-pipeline.9eb55cf11118948a165fa2499ef96ea3.svg",
+    "static/media/underwriting-risk.svg": "/portfolio/static/media/underwriting-risk.c094c3e323d68d7bf97e76d253a4aa2c.svg",
     "main.1bbb1b90.css.map": "/portfolio/static/css/main.1bbb1b90.css.map",
-    "main.2ccb171d.js.map": "/portfolio/static/js/main.2ccb171d.js.map",
+    "main.e785e13d.js.map": "/portfolio/static/js/main.e785e13d.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1bbb1b90.css",
-    "static/js/main.2ccb171d.js"
+    "static/js/main.e785e13d.js"
   ]
 }

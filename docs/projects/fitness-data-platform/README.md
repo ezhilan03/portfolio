@@ -1,5 +1,7 @@
 # Fitness Data Platform
 
+**v1.0.0 · synthetic data · on-demand AWS release**
+
 [Public synthetic dashboard](https://ezhilan03.github.io/fitness-data-platform/) · [Code and verification](https://github.com/ezhilan03/fitness-data-platform)
 
 Workout exports can contain multiple device representations, source corrections, delayed records and missing measurements. This project keeps those distinctions explicit instead of turning incomplete data into apparently precise activity totals.

@@ -1,6 +1,6 @@
 # Fintech RAG: source changes without losing trust
 
-**Personal project · synthetic payment policies · released on-demand AWS demo**
+**v0.2.0 · Personal project · synthetic payment policies · released on-demand AWS demo**
 
 [Repository](https://github.com/ezhilan03/fintech-rag) · [Release](https://github.com/ezhilan03/fintech-rag/releases/tag/v0.2.0) · [Successful cloud run](https://github.com/ezhilan03/fintech-rag/actions/runs/34804436930)
 
