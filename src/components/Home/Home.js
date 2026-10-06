@@ -125,7 +125,7 @@ export default function Home() {
             All {projects.length} projects <FiArrowUpRight />
           </Link>
         </div>
-        {["Multi-Agent Financial Reconciliation Engine", "Fintech Hybrid RAG Engine"].map((title) => projects.find((project) => project.title === title)).map((project, index) => (
+        {["Revenue Pipeline Reliability & Forecasting", "Fintech Hybrid RAG Engine"].map((title) => projects.find((project) => project.title === title)).map((project, index) => (
           <article className="editorial-project" key={project.title}>
             <div className="editorial-project-intro">
               <span className="eyebrow">
@@ -134,17 +134,17 @@ export default function Home() {
               <h3>{project.title}</h3>
               <p>{project.description}</p>
             </div>
-            {index === 0 && (
+            {project.title === "Revenue Pipeline Reliability & Forecasting" && (
               <figure className="recon-flow">
                 <figcaption>Architecture overview</figcaption>
                 <div className="flow-steps">
-                  <span>Transactions</span>
+                  <span>CRM + contracts</span>
                   <b aria-hidden="true">→</b>
-                  <span className="flow-matcher">Deterministic matcher</span>
+                  <span className="flow-matcher">dbt + quality gate</span>
                   <b aria-hidden="true">→</b>
                   <div className="flow-outcomes">
-                    <span>Matched</span>
-                    <span>Investigation → Human review</span>
+                    <span>Validated release</span>
+                    <span>Contract exception queue</span>
                   </div>
                 </div>
               </figure>
@@ -155,6 +155,14 @@ export default function Home() {
               ))}
             </ul>
             <p className="editorial-stack">{project.stack.join(" · ")}</p>
+            <a
+              className="text-link"
+              href={project.caseStudyLink}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Case study & verified results <FiArrowUpRight />
+            </a>{" "}
             <a
               className="text-link"
               href={project.ghLink}

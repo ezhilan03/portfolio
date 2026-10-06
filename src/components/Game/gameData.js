@@ -54,7 +54,7 @@ export const characters = [
     ],
     attribute: "Cross-team leadership",
     evidence:
-      "Led delivery of an AI-powered credit/debit reconciliation system, designing the domain architecture, managing vendor API/SFTP integration and coordinating a 3-team, cross-vendor build, freeing $160K/year of manual-labor budget.",
+      "Led delivery of an AI-powered credit/debit reconciliation system, designing the domain architecture, managing vendor API/SFTP integration and coordinating a three-team, cross-vendor build.",
   },
 ];
 // Reserved for the user’s approved quotes; never substitute invented recommendations.

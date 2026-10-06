@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.d8b15cfa.css",
-    "main.js": "/portfolio/static/js/main.fb0355ce.js",
+    "main.js": "/portfolio/static/js/main.c177890c.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/copper-lamp.png": "/portfolio/static/media/copper-lamp.52e8c7043fd744ec8bd3.png",
     "static/media/dimensionality.webp": "/portfolio/static/media/dimensionality.a60eb9f61dcb96104523.webp",
@@ -24,11 +24,11 @@
     "static/media/revenue-pipeline.svg": "/portfolio/static/media/revenue-pipeline.9eb55cf11118948a165fa2499ef96ea3.svg",
     "static/media/underwriting-risk.svg": "/portfolio/static/media/underwriting-risk.c094c3e323d68d7bf97e76d253a4aa2c.svg",
     "main.d8b15cfa.css.map": "/portfolio/static/css/main.d8b15cfa.css.map",
-    "main.fb0355ce.js.map": "/portfolio/static/js/main.fb0355ce.js.map",
+    "main.c177890c.js.map": "/portfolio/static/js/main.c177890c.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d8b15cfa.css",
-    "static/js/main.fb0355ce.js"
+    "static/js/main.c177890c.js"
   ]
 }
